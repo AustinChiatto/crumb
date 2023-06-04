@@ -1,17 +1,14 @@
-// import ButtonPrimary from "./components/ButtonPrimary/ButtonPrimary";
-
-import ButtonList from "./components/ButtonList/ButtonList";
+import GridControlBar from "./components/GridControlBar/GridControlBar";
+import OutputDisplay from "./components/OutputDisplay/OutputDisplay";
+import SideBar from "./components/SideBar/SideBar";
 
 function App() {
     return (
-        <>
-            <div className="view-wrapper">
-                <aside className="side-bar card">
-                    <ButtonList></ButtonList>
-                </aside>
-                <section className="output-container card"></section>
-            </div>
-        </>
+        <div className="view-wrapper">
+            <SideBar></SideBar>
+            <GridControlBar></GridControlBar>
+            <OutputDisplay></OutputDisplay>
+        </div>
     );
 }
 

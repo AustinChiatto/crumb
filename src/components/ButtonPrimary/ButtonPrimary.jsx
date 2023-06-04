@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ButtonPrimary = (props) => {
+const ButtonPrimary = ({ btnLabel }) => {
     const [active, setActive] = useState(false);
     const toggleActive = () => setActive((prevState) => !prevState);
 
@@ -9,7 +9,7 @@ const ButtonPrimary = (props) => {
             className={active ? "btn-primary--active" : "btn-primary"}
             onClick={toggleActive}
         >
-            {props.btnLabel}
+            {btnLabel}
         </button>
     );
 };

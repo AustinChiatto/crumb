@@ -1,0 +1,8 @@
+/* ===========================
+    grid-control-bar
+=========================== */
+
+.grid-control-bar {
+    grid-column: 4 / span 9;
+    grid-row: auto / span 2;
+}
