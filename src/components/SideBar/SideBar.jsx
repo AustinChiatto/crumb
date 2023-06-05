@@ -1,35 +1,29 @@
-import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
+import ButtonList from "../ButtonList/ButtonList";
 import "./side-bar.css";
-import { useState } from "react";
 
+// declare component
+// component is called SideBar
+// component has no props being passed to it
 const SideBar = () => {
-    const [buttons, setButtons] = useState([
-        {
-            id: 1,
-            isActive: true,
-            label: "Blocks",
-        },
-        {
-            id: 2,
-            isActive: false,
-            label: "Templates",
-        },
-    ]);
+    // define state hook
+    // state hooks current and default value is an array of button value pairs
+    // those value pairs are read only and can only be changed when calling the setButtons method
+    // const [buttons, setButtons] = useState([
+    //     {
+    //         id: 1,
+    //         isActive: true,
+    //         label: "Blocks",
+    //     },
+    //     {
+    //         id: 2,
+    //         isActive: false,
+    //         label: "Templates",
+    //     },
+    // ]);
 
     return (
         <aside className="side-bar card">
-            <ul className="btn-list">
-                {buttons.map((button) => {
-                    return (
-                        <li
-                            key={button.id}
-                            className="btn-list__item"
-                        >
-                            <ButtonPrimary btnLabel={button.label}></ButtonPrimary>
-                        </li>
-                    );
-                })}
-            </ul>
+            <ButtonList></ButtonList>
             <ul className="toolbox">
                 <li className="toolbox__block toolbox__block--1x1"></li>
                 <li className="toolbox__block toolbox__block--2x1"></li>

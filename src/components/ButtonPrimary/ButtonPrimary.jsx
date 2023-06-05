@@ -1,17 +1,5 @@
-import { useState } from "react";
-
 const ButtonPrimary = ({ btnLabel }) => {
-    const [active, setActive] = useState(false);
-    const toggleActive = () => setActive((prevState) => !prevState);
-
-    return (
-        <button
-            className={active ? "btn-primary--active" : "btn-primary"}
-            onClick={toggleActive}
-        >
-            {btnLabel}
-        </button>
-    );
+    return <button className="btn-primary">{btnLabel}</button>;
 };
 
 export default ButtonPrimary;
