@@ -2,7 +2,12 @@ import { useState } from "react";
 import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import "./output-display.css";
 
+import { useGridControl, useUpdateInput } from "../../GridControlContext";
+
 const OutputDisplay = () => {
+    const inputValues = useGridControl();
+    const updateInput = useUpdateInput();
+
     const [buttons, setButtons] = useState([
         {
             id: 1,
@@ -18,6 +23,7 @@ const OutputDisplay = () => {
 
     return (
         <section className="output-display card">
+            {console.log(inputValues[0])}
             <ul className="btn-list--wide">
                 {buttons.map((button) => {
                     return (
