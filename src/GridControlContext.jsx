@@ -14,7 +14,7 @@ export function useUpdateInput() {
 export function GridControlProvider({ children }) {
     const defaultColumnValue = 6;
     const defaultRowValue = 3;
-    const defaultGapValue = 16;
+    const defaultGapValue = 8;
     // define state & set the default state to be the default state passed in through prop
     const [inputValue, setInputValue] = useState([defaultColumnValue, defaultRowValue, defaultGapValue]);
 
@@ -37,6 +37,11 @@ export function GridControlProvider({ children }) {
             }
         });
     }
+
+    // ==== Process ====
+    // 1. create an empty array
+    // 2. when updateInput is run - update array object to include or remove a new element
+    // 3. use map to render array of items
 
     return (
         <GridControlContext.Provider value={inputValue}>

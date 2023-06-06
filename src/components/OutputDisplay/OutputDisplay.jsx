@@ -2,47 +2,67 @@ import { useState } from "react";
 import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
 import "./output-display.css";
 
-import { useGridControl, useUpdateInput } from "../../GridControlContext";
+import { useGridControl } from "../../GridControlContext";
+import GridItem from "./GridItem";
+import OutputGrid from "./OutputGrid";
+import OutputSnippet from "./OutputSnippet";
 
+// Define Component
+// ===========================
 const OutputDisplay = () => {
     const inputValues = useGridControl();
-    const updateInput = useUpdateInput();
 
-    const [buttons, setButtons] = useState([
-        {
-            id: 1,
-            isActive: true,
-            label: "Show Grid",
-        },
-        {
-            id: 2,
-            isActive: false,
-            label: "Get Code",
-        },
-    ]);
+    // Handle Grid Item Rendering
+    // ===========================
+    // define styles for the grid container
+    // styles change based on the value of the
+    const gridStyles = {
+        gridTemplateColumns: `repeat(${inputValues[0]}, 1fr)`,
+        gridTemplateRows: `repeat(${inputValues[1]}, 1fr)`,
+        gap: `${inputValues[2]}px`,
+    };
 
+    // calculate how many total grid items there needs to be
+    const totalGridItemCount = inputValues[0] * inputValues[1];
+    // add a GridItem component to and array based on the length of the calculated value
+    const gridItemArray = Array.from({ length: totalGridItemCount }, () => <GridItem />);
+
+    // Conditionally Render Grid or Code
+    // ===========================
+
+    const [active, setActive] = useState(false);
+
+    const updateDisplayedOutput = () => {
+        setActive((prevActive) => !prevActive);
+    };
+
+    // Exported Component
+    // ===========================
     return (
         <section className="output-display card">
-            {console.log(inputValues[0])}
             <ul className="btn-list--wide">
-                {buttons.map((button) => {
-                    return (
-                        <li
-                            key={button.id}
-                            className="btn-list__item"
-                        >
-                            <ButtonPrimary btnLabel={button.label}></ButtonPrimary>
-                        </li>
-                    );
-                })}
+                <li className="btn-list__item">
+                    <ButtonPrimary
+                        btnLabel="Hide Children"
+                        isActive={true}
+                    ></ButtonPrimary>
+                </li>
+                <li className="btn-list__item">
+                    <ButtonPrimary
+                        btnLabel="Get CSS"
+                        isActive={active}
+                        event={updateDisplayedOutput}
+                    ></ButtonPrimary>
+                </li>
             </ul>
-            <div className="output-display__grid-container">
-                <div className="grid-test-item"></div>
-                <div className="grid-test-item"></div>
-                <div className="grid-test-item"></div>
-                <div className="grid-test-item"></div>
-                <div className="grid-test-item"></div>
-            </div>
+            {active ? (
+                <OutputSnippet></OutputSnippet>
+            ) : (
+                <OutputGrid
+                    gridStyles={gridStyles}
+                    gridItemArray={gridItemArray}
+                ></OutputGrid>
+            )}
         </section>
     );
 };

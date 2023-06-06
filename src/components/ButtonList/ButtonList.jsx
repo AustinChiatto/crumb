@@ -5,7 +5,10 @@ const ButtonList = () => {
     return (
         <ul className="btn-list">
             <li className="btn-list__item">
-                <ButtonPrimary btnLabel="Blocks"></ButtonPrimary>
+                <ButtonPrimary
+                    btnLabel="Blocks"
+                    isActive={true}
+                ></ButtonPrimary>
             </li>
             <li className="btn-list__item">
                 <ButtonPrimary btnLabel="Templates"></ButtonPrimary>
