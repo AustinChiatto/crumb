@@ -1,4 +1,4 @@
-import "./buttons.css";
+import styles from "./ButtonPrimary.module.scss";
 
 const ButtonPrimary = ({ btnLabel, isActive, event }) => {
     // when clicking a button
@@ -12,7 +12,7 @@ const ButtonPrimary = ({ btnLabel, isActive, event }) => {
 
     return (
         <button
-            className={isActive ? "btn-primary btn-primary--active" : "btn-primary"}
+            className={isActive ? styles.ButtonActive : styles.Button}
             onClick={handleClick}
         >
             {btnLabel}

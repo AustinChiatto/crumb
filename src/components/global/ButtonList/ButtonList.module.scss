@@ -1,0 +1,18 @@
+@use "../../../styles/utilities/variables" as *;
+
+/* button list */
+.ButtonList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ButtonListItem + .ButtonListItem {
+    margin-left: 0.5rem;
+}
+
+.ButtonListWide {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

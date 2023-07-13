@@ -2,6 +2,7 @@ import CodeToImg from "./views/CodeToImg.jsx";
 import Dashboard from "./views/Dashboard.jsx";
 import GridTool from "./views/GridTool.jsx";
 import SnippetEditor from "./views/SnippetEditor.jsx";
+import "./app.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
