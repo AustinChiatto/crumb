@@ -1,18 +1,32 @@
-import { GridControlProvider } from "./GridControlContext";
-import GridControlBar from "./components/GridControlBar/GridControlBar";
-import OutputDisplay from "./components/OutputDisplay/OutputDisplay";
-import SideBar from "./components/SideBar/SideBar";
+import CodeToImg from "./views/CodeToImg.jsx";
+import Dashboard from "./views/Dashboard.jsx";
+import GridTool from "./views/GridTool.jsx";
+import SnippetEditor from "./views/SnippetEditor.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-function App() {
-    return (
-        <div className="view-wrapper">
-            <SideBar></SideBar>
-            <GridControlProvider>
-                <GridControlBar></GridControlBar>
-                <OutputDisplay></OutputDisplay>
-            </GridControlProvider>
-        </div>
-    );
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Dashboard />,
+    },
+    {
+        path: "/home",
+        element: <Dashboard />,
+    },
+    {
+        path: "/grid-tool",
+        element: <GridTool />,
+    },
+    {
+        path: "/code-to-img",
+        element: <CodeToImg />,
+    },
+    {
+        path: "/snippet-editor",
+        element: <SnippetEditor />,
+    },
+]);
+
+export default function App() {
+    return <RouterProvider router={router} />;
 }
-
-export default App;

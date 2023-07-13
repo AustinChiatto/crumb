@@ -1,4 +1,4 @@
-import ButtonList from "../ButtonList/ButtonList";
+import ButtonList from "../../global/ButtonList/ButtonList";
 import "./side-bar.css";
 
 // declare component

@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import { useGridControl } from "../../GridControlContext";
-import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
+import { useGridControl } from "../../../GridControlContext";
+import ButtonPrimary from "../../global/ButtonPrimary/ButtonPrimary";
 
 // Declare Component
 // ===========================

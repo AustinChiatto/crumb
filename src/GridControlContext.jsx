@@ -3,10 +3,12 @@ import React, { useContext, useState } from "react";
 const GridControlContext = React.createContext();
 const updateInputContext = React.createContext();
 
+// used to store the value of the grid control component
 export function useGridControl() {
     return useContext(GridControlContext);
 }
 
+// passes the value of the grid control to the grid output component
 export function useUpdateInput() {
     return useContext(updateInputContext);
 }

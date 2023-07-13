@@ -1,8 +1,8 @@
 import { useState } from "react";
-import ButtonPrimary from "../ButtonPrimary/ButtonPrimary";
+import ButtonPrimary from "../../global/ButtonPrimary/ButtonPrimary";
 import "./output-display.css";
 
-import { useGridControl } from "../../GridControlContext";
+import { useGridControl } from "../../../GridControlContext";
 import GridItem from "./GridItem";
 import OutputGrid from "./OutputGrid";
 import OutputSnippet from "./OutputSnippet";

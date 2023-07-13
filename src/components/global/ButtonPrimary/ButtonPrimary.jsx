@@ -1,3 +1,5 @@
+import "./buttons.css";
+
 const ButtonPrimary = ({ btnLabel, isActive, event }) => {
     // when clicking a button
     // ===========================
