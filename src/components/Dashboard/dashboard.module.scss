@@ -1,0 +1,9 @@
+@use "../../styles/utilities/variables" as *;
+@use "../../styles/utilities/mixins" as m;
+
+// dashboard wrapper
+// ===========================
+.Wrapper {
+    padding: $layout-wrapper-padding;
+    @include m.grid(12, false, 1rem);
+}

@@ -4,14 +4,26 @@
 // color
 // ===========================
 $color-body: #FFF ;
-$color-card: #F7F8F9;
+$color-card-bg: #F7F8F9;
 $color-light-blue: #e5eff9;
 $color-dark-blue: #63adf2;
-$color-dark-grey: #848484;
+$color-dark-grey: #515151;
 // buttons
 $color-btn-bg: #fefefe;
-$color-btn-border: #dedee0;
+$color-btn-border: #DEDEE0;
 $color-btn-text: $color-dark-grey;
 $color-btn-active-bg: $color-light-blue;
 $color-btn-active-border: $color-dark-blue;
 $color-btn-active-text: $color-dark-blue;
+
+// layout
+// ===========================
+$layout-wrapper-padding: 2rem;
+
+// card
+// ===========================
+$card-padding: 2.25rem;
+
+// border
+// ===========================
+$border-radius: 1.5rem;

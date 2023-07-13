@@ -1,0 +1,17 @@
+@use "../../../../styles/utilities/variables" as *;
+@use "../../../../styles/utilities/mixins" as m;
+
+// tool container
+// ===========================
+.Tool + .Tool {
+    margin-left: 1.5rem;
+}
+
+// tool thumbnail
+// ===========================
+.ToolThumbnail {
+    margin-top: 1rem;
+    background: $color-body;
+    padding: 0.5rem;
+    border-radius: $border-radius;
+}

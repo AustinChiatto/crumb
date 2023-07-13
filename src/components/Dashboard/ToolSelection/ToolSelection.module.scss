@@ -1,0 +1,18 @@
+@use "../../../styles/utilities/variables" as *;
+@use "../../../styles/utilities/mixins" as m;
+
+// tool selection
+// ===========================
+.ToolSelection {
+    @include m.gridSpan(1, 12);
+    background: $color-card-bg;
+    padding: 2.25rem;
+    border-radius: $border-radius
+}
+
+// tool list
+// ===========================
+.ToolList {
+    max-width: fit-content;
+    @include m.flex(flex-start, center)
+}

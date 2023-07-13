@@ -1,0 +1,55 @@
+// Media Queries
+// ===========================
+// define breakpoints
+$breakpoints: (
+    "phone":        400px,
+    "phone-wide":   480px,
+    "phablet":      560px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+
+// define mixin
+@mixin media-query($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+        $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+        @content;
+    }
+    }
+}
+
+// Structure
+// ===========================
+// defines grid
+@mixin grid($col, $row: false, $gap: false) {
+    display: grid;
+    grid-template-columns: repeat($col, 1fr);
+    @if $gap{
+        gap: $gap;
+    }
+}
+
+// defines grid
+@mixin gridSpan($colStart, $colSpan, $rowStart: false, $rowSpan: false) {
+    grid-column: $colStart / span $colSpan;
+    @if $rowStart{
+        grid-row: $rowStart / span $rowSpan;
+    }
+}
+
+// defines flex
+@mixin flex($justify, $align, $direction: false) {
+    display: flex;
+    @if $direction{
+        flex-direction: $direction;
+    }
+    justify-content: $justify;
+    align-items: $align;
+}

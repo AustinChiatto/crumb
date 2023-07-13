@@ -1,3 +1,5 @@
-export default function Dashboard() {
-    return <div className="view-wrapper">Dashboard</div>;
+import Dashboard from "../components/Dashboard/Dashboard";
+
+export default function DashboardView() {
+    return <Dashboard />;
 }

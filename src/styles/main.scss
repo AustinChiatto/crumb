@@ -1,5 +1,7 @@
 // Base Styles
 // ===========================
+@use "./base/root";
+// base
 @use "./base/base";
 // type
 @use "./base/typography";
@@ -11,3 +13,4 @@
 
 // Global Styles
 // ===========================
+@use "./global/cards"

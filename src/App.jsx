@@ -1,18 +1,18 @@
 import CodeToImg from "./views/CodeToImg.jsx";
-import Dashboard from "./views/Dashboard.jsx";
 import GridTool from "./views/GridTool.jsx";
 import SnippetEditor from "./views/SnippetEditor.jsx";
 import "./app.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import DashboardView from "./views/Dashboard.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Dashboard />,
+        element: <DashboardView />,
     },
     {
         path: "/home",
-        element: <Dashboard />,
+        element: <DashboardView />,
     },
     {
         path: "/grid-tool",
