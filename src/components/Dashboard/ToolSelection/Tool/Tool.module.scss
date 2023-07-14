@@ -3,8 +3,8 @@
 
 // tool container
 // ===========================
-.Tool + .Tool {
-    margin-left: 1.5rem;
+.Tool {
+    @include m.gridSpan(auto, 3);
 }
 
 // tool thumbnail
@@ -14,4 +14,9 @@
     background: $color-body;
     padding: 0.5rem;
     border-radius: $border-radius;
+}
+
+.ToolThumbnailImg {
+    max-width: 100%;
+    object-fit: contain;
 }
