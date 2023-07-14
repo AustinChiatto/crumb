@@ -1,0 +1,45 @@
+@use "../../../styles/utilities/variables" as *;
+@use "../../../styles/utilities/mixins" as m;
+
+// container for snippet customization
+.SnippetInput {
+    @include m.gridSpan(6, 7, 1, 4);
+    @include m.grid(8, false, 1rem);
+}
+
+// snippet property card
+.SnippetProperties {
+    @include m.gridSpan(1, 5);
+    @include m.flex(flex-start, flex-start, column);
+}
+
+// snippet color card
+.SnippetColor {
+    @include m.gridSpan(6, 3);
+    @include m.flex(center, center);
+}
+
+// add card styling
+.SnippetProperties,
+.SnippetColor {
+    padding: 2.25rem;
+    border-radius: $border-radius;
+    background: $color-card-bg;
+}
+
+// Properties
+// ===========================
+.PropertiesContainer {
+    @include m.flex(flex-start, center);
+    // place-items: center;
+    flex-grow: 1;
+    margin-top: 1.5rem;
+    justify-self: center;
+}
+
+.PropertiesList {
+    @include m.grid(2, 3, 1rem);
+    grid-auto-flow: column;
+}
+
+

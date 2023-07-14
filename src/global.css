@@ -20,3 +20,30 @@
     gap: 1rem;
     overflow: hidden;
 }
+
+/* ===========================
+    React Colorful Styling
+=========================== */
+/* todo: this is a temporary placement of the styling for the snippet color editor */
+
+.snippet-color .react-colorful__saturation {
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    border-bottom: none;
+}
+
+.snippet-color .react-colorful__saturation-pointer {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.snippet-color .react-colorful__hue {
+    order: -1;
+    height: 0.75rem;
+    border-radius: 1rem;
+}
+
+.snippet-color .react-colorful__hue-pointer {
+    width: 1.25rem;
+    height: 1.25rem;
+}

@@ -1,6 +1,6 @@
 import CodeToImg from "./views/CodeToImg.jsx";
 import GridTool from "./views/GridTool.jsx";
-import SnippetEditor from "./views/SnippetEditor.jsx";
+import SnippetEditorView from "./views/SnippetEditor.jsx";
 import "./app.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import DashboardView from "./views/Dashboard.jsx";
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/snippet-editor",
-        element: <SnippetEditor />,
+        element: <SnippetEditorView />,
     },
 ]);
 

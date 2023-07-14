@@ -1,3 +1,9 @@
-export default function SnippetEditor() {
-    return <div className="view-wrapper">snippet editor</div>;
+import SnippetEditor from "../components/SnippetEditor/SnippetEditor";
+
+export default function SnippetEditorView() {
+    return (
+        <div className="view-wrapper">
+            <SnippetEditor />
+        </div>
+    );
 }
