@@ -1,5 +1,7 @@
 // components
 import ButtonPrimary from "../../global/ButtonPrimary/ButtonPrimary";
+import SnippetCard from "./SnippetCard/SnippetCard";
+import elementData from "./snippets/elements.json";
 
 //styles
 import styles from "./SnippetGrid.module.scss";
@@ -12,12 +14,14 @@ export default function SnippetGrid() {
                 <ButtonPrimary btnLabel="Cards"></ButtonPrimary>
             </div>
             <section className={styles.SnippetGrid}>
-                <article className={styles.Snippet}>
-                    <h4 className={styles.SnippetLabel}>
-                        ID <span className={styles.SnippetID}>001</span>
-                    </h4>
-                    <div className={styles.SnippetDisplay}>btn</div>
-                </article>
+                {Object.values(elementData).map((element) => (
+                    <SnippetCard
+                        key={element.id}
+                        id={element.id}
+                        label={element.label}
+                        elementStyle={element.style}
+                    />
+                ))}
             </section>
         </div>
     );
