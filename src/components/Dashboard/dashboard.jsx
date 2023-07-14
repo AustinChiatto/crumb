@@ -3,7 +3,7 @@ import SnippetGrid from "./SnippetGrid/SnippetGrid";
 import ToolSelection from "./ToolSelection/ToolSelection";
 
 // styles
-import styles from "./dashboard.module.scss";
+import styles from "./Dashboard.module.scss";
 
 export default function Dashboard() {
     return (

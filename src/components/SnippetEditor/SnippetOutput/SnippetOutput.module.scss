@@ -1,0 +1,29 @@
+@use "../../../styles/utilities/variables" as *;
+@use "../../../styles/utilities/mixins" as m;
+
+// container for visual representation of snippet
+.SnippetOutput {
+    @include m.gridSpan(1, 5, 1, 12);
+    @include m.flex(center, center, column);
+    padding: 2.25rem;
+    border-radius: $border-radius;
+    background: $color-card-bg;
+}
+
+// label
+// ===========================
+.SnippetLabel {
+    font-size: 0.75rem;
+    align-self: flex-end;
+}
+
+.SnippetID {
+    margin-left: 0.75rem;
+}
+
+// display
+// ===========================
+.SnippetDisplay {
+    flex-grow: 1;
+    @include m.flex(center, center);
+}

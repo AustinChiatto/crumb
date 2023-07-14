@@ -1,0 +1,30 @@
+@use "../../../styles/utilities/variables" as *;
+@use "../../../styles/utilities/mixins" as m;
+
+// container for the code of the snippet
+.CodeOutput {
+    @include m.gridSpan(6, 7, 5, 8);
+    @include m.flex(flex-start, center, column);
+}
+
+.CodeOptions {
+    @include m.flex(space-between, center);
+    width: 100%;
+    max-width: 100%;
+}
+
+.LanguageOptions > * + * {
+    margin-left: 0.5rem;
+}
+
+.OutputCode {
+    width: 100%;
+    max-width: 100%;
+    flex-grow: 1;
+    overflow: scroll;
+    background: #EDEFF1;
+    border: 0.125rem solid $color-btn-border;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-radius: calc($border-radius / 2);
+}
