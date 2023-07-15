@@ -1,6 +1,7 @@
 // hooks
 import { useState } from "react";
 import { HexColorPicker } from "react-colorful";
+import { useSnippetEdit, useUpdateValues } from "../../../SnippetEditorContext";
 
 // icons
 import iconPaddingHorizontal from "../../../assets/icons/icon_padding-horizontal.svg";
@@ -13,7 +14,12 @@ import styles from "./SnippetInput.module.scss";
 import SnippetProperty from "./SnippetProperty/SnippetProperty";
 
 export default function SnippetInput() {
-    const [color, setColor] = useState("#aabbcc");
+    // contexts
+    const inputValues = useSnippetEdit();
+    const updateInput = useUpdateValues();
+
+    // useState for color picker
+    const [color, setColor] = useState("#28446e");
 
     return (
         <section className={styles.SnippetInput}>
@@ -23,24 +29,28 @@ export default function SnippetInput() {
                 <div className={styles.PropertiesContainer}>
                     <ul className={styles.PropertiesList}>
                         <SnippetProperty
-                            index={1}
+                            index={0}
+                            value={inputValues[0]}
+                            updateValue={updateInput}
                             icon={iconPaddingHorizontal}
-                            defaultValue={1}
+                        />
+                        <SnippetProperty
+                            index={1}
+                            value={inputValues[1]}
+                            updateValue={updateInput}
+                            icon={iconPaddingVertical}
                         />
                         <SnippetProperty
                             index={2}
-                            icon={iconPaddingVertical}
-                            defaultValue={2}
+                            value={inputValues[2]}
+                            updateValue={updateInput}
+                            icon={iconBorderRadius}
                         />
                         <SnippetProperty
                             index={3}
-                            icon={iconBorderRadius}
-                            defaultValue={3}
-                        />
-                        <SnippetProperty
-                            index={4}
+                            value={inputValues[3]}
+                            updateValue={updateInput}
                             icon={iconFontSize}
-                            defaultValue={4}
                         />
                     </ul>
                 </div>

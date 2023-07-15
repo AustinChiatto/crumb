@@ -1,7 +1,7 @@
 // components
 import ButtonPrimary from "../../global/ButtonPrimary/ButtonPrimary";
 import SnippetCard from "./SnippetCard/SnippetCard";
-import elementData from "./snippets/elements.json";
+import elementData from "../../../data/elements.json";
 
 //styles
 import styles from "./SnippetGrid.module.scss";

@@ -1,5 +1,7 @@
-import GridControlInput from "../GridControlInput/GridControlInput";
+// hooks
 import { useGridControl, useUpdateInput } from "../../../../GridControlContext";
+// components
+import GridControlInput from "../GridControlInput/GridControlInput";
 
 // define component
 const GridControlSection = () => {

@@ -3,11 +3,11 @@
         "id": 1,
         "label": "button",
         "style": {
-            "elementType": "button",
-            "color": "#fff",
+            "background": "#974ec2",
             "paddingBlock": "1rem",
             "paddingInline": "2rem",
-            "background": "#974ec2",
+            "color": "#fff",
+            "fontSize": "1rem",
             "boxShadow": "0px 3px 0px 0px #513f99",
             "borderRadius": "0.5rem"
         }
@@ -17,13 +17,13 @@
         "id": 2,
         "label": "button",
         "style": {
-            "elementType": "button",
-            "color": "#ff9677",
+            "background": "#984063",
             "paddingBlock": "1rem",
             "paddingInline": "2rem",
-            "background": "#984063",
-            "borderRadius": "5rem",
-            "border": "2px solid #ff9677"
+            "color": "#ff9677",
+            "fontSize": "1rem",
+            "border": "2px solid #ff9677",
+            "borderRadius": "5rem"
         }
     }
 ]

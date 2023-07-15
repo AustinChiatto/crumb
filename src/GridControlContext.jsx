@@ -1,5 +1,7 @@
+// hooks
 import React, { useContext, useState } from "react";
 
+// contexts
 const GridControlContext = React.createContext();
 const updateInputContext = React.createContext();
 
