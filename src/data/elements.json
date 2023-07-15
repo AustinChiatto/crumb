@@ -4,12 +4,12 @@
         "label": "button",
         "style": {
             "background": "#974ec2",
-            "paddingBlock": "1rem",
-            "paddingInline": "2rem",
+            "paddingBlock": "20px",
+            "paddingInline": "36px",
             "color": "#fff",
-            "fontSize": "1rem",
+            "fontSize": "16px",
             "boxShadow": "0px 3px 0px 0px #513f99",
-            "borderRadius": "0.5rem"
+            "borderRadius": "8px"
         }
         
     },
@@ -18,12 +18,12 @@
         "label": "button",
         "style": {
             "background": "#984063",
-            "paddingBlock": "1rem",
-            "paddingInline": "2rem",
+            "paddingBlock": "16px",
+            "paddingInline": "32px",
             "color": "#ff9677",
-            "fontSize": "1rem",
+            "fontSize": "16px",
             "border": "2px solid #ff9677",
-            "borderRadius": "5rem"
+            "borderRadius": "80px"
         }
     }
 ]
