@@ -1,15 +1,15 @@
 [
     {
         "id": 1,
-        "label": "button",
+        "label": "Coding Queens",
         "style": {
             "background": "#974ec2",
-            "paddingBlock": "20px",
-            "paddingInline": "36px",
+            "paddingBlock": "1.5rem",
+            "paddingInline": "2rem",
             "color": "#fff",
-            "fontSize": "16px",
+            "fontSize": "1rem",
             "boxShadow": "0px 3px 0px 0px #513f99",
-            "borderRadius": "8px"
+            "borderRadius": "0.5rem"
         }
         
     },
@@ -18,12 +18,12 @@
         "label": "button",
         "style": {
             "background": "#984063",
-            "paddingBlock": "16px",
-            "paddingInline": "32px",
+            "paddingBlock": "1rem",
+            "paddingInline": "2rem",
             "color": "#ff9677",
-            "fontSize": "16px",
-            "border": "2px solid #ff9677",
-            "borderRadius": "80px"
+            "fontSize": "1rem",
+            "border": "0.125rem solid #ff9677",
+            "borderRadius": "5rem"
         }
     }
 ]

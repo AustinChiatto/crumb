@@ -35,12 +35,12 @@ export function SnippetEditorProvider({ children }) {
     function updateValues(index, operation) {
         setInputValue((prevValues) => {
             if (operation === "add") {
-                const newValue = prevValues[index] + 1;
+                const newValue = prevValues[index] + 0.25;
                 const newValues = [...prevValues];
                 newValues[index] = newValue;
                 return newValues;
             } else if (operation === "sub" && prevValues[index] > 0) {
-                const newValue = prevValues[index] - 1;
+                const newValue = prevValues[index] - 0.25;
                 const newValues = [...prevValues];
                 newValues[index] = newValue;
                 return newValues;

@@ -23,7 +23,8 @@ const router = createBrowserRouter([
         element: <CodeToImg />,
     },
     {
-        path: "/snippet-editor",
+        // id param is used to pass in elem info from JSON file
+        path: "/snippet-editor/:id",
         element: <SnippetEditorView />,
     },
 ]);

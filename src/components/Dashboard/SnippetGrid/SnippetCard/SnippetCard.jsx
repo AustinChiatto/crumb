@@ -6,19 +6,23 @@ export default function SnippetCard({ id, elementStyle, label }) {
     const formattedId = id.toString().padStart(3, "0");
 
     return (
-        <article className={styles.SnippetCard}>
+        <a
+            // assign id from JSON to router path
+            href={`/snippet-editor/${id}`}
+            className={styles.SnippetCard}
+        >
             <h4 className={styles.SnippetLabel}>
                 ID <span className={styles.SnippetID}>{formattedId}</span>
             </h4>
             <div className={styles.SnippetDisplay}>
-                <a
+                <div
                     style={{
                         ...elementStyle, // Spread the style properties from elementStyle
                     }}
                 >
                     {label}
-                </a>
+                </div>
             </div>
-        </article>
+        </a>
     );
 }
