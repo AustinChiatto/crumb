@@ -14,7 +14,7 @@ import styles from "./SnippetOutput.module.scss";
 export default function SnippetOutput() {
     // handle snippet values
     // ===========================
-    const inputValues = useSnippetEdit(); // values of edit controls from context
+    const inputValues = useSnippetEdit();
 
     // handle initial snippet render
     // ===========================

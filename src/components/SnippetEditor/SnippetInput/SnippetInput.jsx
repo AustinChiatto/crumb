@@ -18,7 +18,12 @@ export default function SnippetInput() {
     const inputValues = useSnippetEdit();
     const updateInput = useUpdateValues();
 
-    const { updateValues, updateColorValue } = updateInput;
+    const { updateValues } = updateInput;
+
+    // Handle color change
+    const handleColorChange = (newColor) => {
+        updateValues(2, "update", newColor); // Update the color value directly in the inputValue state
+    };
 
     return (
         <section className={styles.SnippetInput}>
@@ -58,7 +63,7 @@ export default function SnippetInput() {
             <div className={`${styles.SnippetColor} snippet-color`}>
                 <HexColorPicker
                     color={inputValues[2]}
-                    onChange={updateColorValue}
+                    onChange={handleColorChange}
                 />
             </div>
         </section>

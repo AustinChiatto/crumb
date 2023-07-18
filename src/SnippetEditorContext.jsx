@@ -31,8 +31,6 @@ export function SnippetEditorProvider({ children }) {
     // useState for color picker
     const [colorPicker, setColorPicker] = useState(elemMatch.color.background);
 
-    console.log(colorPicker);
-
     const paddingInline = parseFloat(elemMatch.style.paddingInline);
     const paddingBlock = parseFloat(elemMatch.style.paddingBlock);
     const background = colorPicker;
@@ -42,7 +40,10 @@ export function SnippetEditorProvider({ children }) {
 
     const [inputValue, setInputValue] = useState([paddingInline, paddingBlock, background, borderRadius, fontSize, color]);
 
-    function updateValues(index, operation) {
+    // index: id of the input - set above in the state array
+    // operation: passed to the context via prop for the check
+    // newColor: used specifically to get the color information from the picker
+    function updateValues(index, operation, newColor) {
         setInputValue((prevValues) => {
             if (operation === "add") {
                 const newValue = prevValues[index] + 0.25;
@@ -53,6 +54,10 @@ export function SnippetEditorProvider({ children }) {
                 const newValue = prevValues[index] - 0.25;
                 const newValues = [...prevValues];
                 newValues[index] = newValue;
+                return newValues;
+            } else if (operation === "update") {
+                const newValues = [...prevValues];
+                newValues[index] = newColor;
                 return newValues;
             } else {
                 return prevValues;
