@@ -19,7 +19,6 @@ export default function SnippetGrid() {
                         key={element.id}
                         id={element.id}
                         label={element.label}
-                        elementStyle={element.style}
                     />
                 ))}
             </section>

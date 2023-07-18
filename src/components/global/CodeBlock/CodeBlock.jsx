@@ -1,10 +1,12 @@
 // libraries
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 
-import css from "react-syntax-highlighter/dist/esm/languages/hljs/scss";
+import css from "react-syntax-highlighter/dist/esm/languages/hljs/css";
+import html from "react-syntax-highlighter/dist/cjs/languages/hljs/htmlbars";
 import Vs from "react-syntax-highlighter/dist/esm/styles/hljs/github";
 
 SyntaxHighlighter.registerLanguage("css", css);
+SyntaxHighlighter.registerLanguage("html", html);
 
 export default function CodeBlock({ code, language }) {
     return (

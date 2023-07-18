@@ -1,5 +1,6 @@
 // hooks
 import React, { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
 
 // data
 import elemData from "./data/elements.json";
@@ -19,18 +20,27 @@ export function useUpdateValues() {
 }
 
 export function SnippetEditorProvider({ children }) {
+    // router params (snippet id)
+    const params = useParams();
+
     // Property Default Values
     // ===========================
-
     // gets the data for the specific element that matches the id passed in
-    const elemMatch = elemData.find((element) => element.id === 1);
+    const elemMatch = elemData.find((element) => element.id == params.id);
+
+    // useState for color picker
+    const [colorPicker, setColorPicker] = useState(elemMatch.color.background);
+
+    console.log(colorPicker);
 
     const paddingInline = parseFloat(elemMatch.style.paddingInline);
     const paddingBlock = parseFloat(elemMatch.style.paddingBlock);
+    const background = colorPicker;
     const borderRadius = parseFloat(elemMatch.style.borderRadius);
     const fontSize = parseFloat(elemMatch.style.fontSize);
+    const color = elemMatch.color.font;
 
-    const [inputValue, setInputValue] = useState([paddingInline, paddingBlock, borderRadius, fontSize]);
+    const [inputValue, setInputValue] = useState([paddingInline, paddingBlock, background, borderRadius, fontSize, color]);
 
     function updateValues(index, operation) {
         setInputValue((prevValues) => {
@@ -50,19 +60,16 @@ export function SnippetEditorProvider({ children }) {
         });
     }
 
-    // Process
-    // ===========
-    // 1. Get the ID of the snippet clicked on
-    // 2. Store the ID in the editor context
-    // 3. Change page to the editor
-    // 4. Render snippet on editor page with initial values pulled from elements.json
-    // 5. Edit values with inputs on editor page
-    // 6. pass new values to button render through context and state
-    // 7. pass values to code output
+    // function to update color
+
+    const contextValue = {
+        updateValues: updateValues,
+        updateColorValue: setColorPicker,
+    };
 
     return (
         <snippetEditorContext.Provider value={inputValue}>
-            <updateValuesContext.Provider value={updateValues}>{children}</updateValuesContext.Provider>
+            <updateValuesContext.Provider value={contextValue}>{children}</updateValuesContext.Provider>
         </snippetEditorContext.Provider>
     );
 }

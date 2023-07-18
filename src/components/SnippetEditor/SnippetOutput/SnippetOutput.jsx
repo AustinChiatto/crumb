@@ -5,42 +5,60 @@ import { useParams } from "react-router-dom";
 // context
 import { useSnippetEdit } from "../../../SnippetEditorContext";
 
+// data
+import elemData from "../../../data/elements.json";
+
 // styles
 import styles from "./SnippetOutput.module.scss";
 
 export default function SnippetOutput() {
-    const inputValues = useSnippetEdit();
-    const params = useParams();
+    // handle snippet values
+    // ===========================
+    const inputValues = useSnippetEdit(); // values of edit controls from context
 
-    const [isHovered, setIsHovered] = useState(false);
+    // handle initial snippet render
+    // ===========================
+    const params = useParams(); // id passed to new page via router
+    const elemMatch = elemData.find((elem) => elem.id == params.id); // gets the json object that matches the id passed via param
+
+    // if there is no element in the data that matches the param id
+    if (!elemMatch) {
+        console.log("No Matching Element"); // Handle case when the object with the target ID is not found
+    }
+
+    // destructure stored props from json
+    const baseStyles = elemMatch.style;
 
     // handle hover state
     // ===========================
+    const [isHovered, setIsHovered] = useState(false); // state for hover check
+
+    // cursor enters element
     const handleMouseEnter = () => {
         setIsHovered(true);
     };
 
+    // cursor exits element
     const handleMouseLeave = () => {
         setIsHovered(false);
     };
 
     // add hover styles if cursor on element
-    const hoverStyles = isHovered ? { transform: `translateY(${inputValues[1] * 0.25}rem)`, boxShadow: `0rem 0rem 0rem 0rem #513f99` } : {};
+    const hoverStyles = isHovered ? elemMatch.hovered : {};
 
-    // base element styling
+    // set snippet values
     // ===========================
     const inlineStyles = {
+        ...baseStyles,
+        // inputValues set in context as state
         paddingInline: `${inputValues[0]}rem`,
         paddingBlock: `${inputValues[1]}rem`,
-        background: "#974ec2",
-        boxShadow: `0px ${inputValues[1] * 0.25}rem 0px 0px #513f99`,
-        borderRadius: `${inputValues[2]}rem`,
-        color: "#fff",
-        fontSize: `${inputValues[3]}rem`,
-        transition: "transform, box-shadow, 50ms linear",
+        background: `${inputValues[2]}`,
+        borderRadius: `${inputValues[3]}rem`,
+        fontSize: `${inputValues[4]}rem`,
+        color: `${inputValues[5]}`,
         cursor: "pointer",
-        // spread hover styles if hovered
-        ...hoverStyles,
+        ...hoverStyles, // spread hover styles if hovered
     };
 
     return (
@@ -54,7 +72,7 @@ export default function SnippetOutput() {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    {params.id}
+                    Click
                 </a>
             </div>
         </section>

@@ -1,7 +1,7 @@
 // hooks
 import { useState } from "react";
-import { HexColorPicker } from "react-colorful";
 import { useSnippetEdit, useUpdateValues } from "../../../SnippetEditorContext";
+import { HexColorPicker } from "react-colorful";
 
 // icons
 import iconPaddingHorizontal from "../../../assets/icons/icon_padding-horizontal.svg";
@@ -18,8 +18,7 @@ export default function SnippetInput() {
     const inputValues = useSnippetEdit();
     const updateInput = useUpdateValues();
 
-    // useState for color picker
-    const [color, setColor] = useState("#28446e");
+    const { updateValues, updateColorValue } = updateInput;
 
     return (
         <section className={styles.SnippetInput}>
@@ -31,25 +30,25 @@ export default function SnippetInput() {
                         <SnippetProperty
                             index={0}
                             value={inputValues[0]}
-                            updateValue={updateInput}
+                            updateValue={updateValues}
                             icon={iconPaddingHorizontal}
                         />
                         <SnippetProperty
                             index={1}
                             value={inputValues[1]}
-                            updateValue={updateInput}
+                            updateValue={updateValues}
                             icon={iconPaddingVertical}
-                        />
-                        <SnippetProperty
-                            index={2}
-                            value={inputValues[2]}
-                            updateValue={updateInput}
-                            icon={iconBorderRadius}
                         />
                         <SnippetProperty
                             index={3}
                             value={inputValues[3]}
-                            updateValue={updateInput}
+                            updateValue={updateValues}
+                            icon={iconBorderRadius}
+                        />
+                        <SnippetProperty
+                            index={4}
+                            value={inputValues[4]}
+                            updateValue={updateValues}
                             icon={iconFontSize}
                         />
                     </ul>
@@ -58,8 +57,8 @@ export default function SnippetInput() {
             {/* color */}
             <div className={`${styles.SnippetColor} snippet-color`}>
                 <HexColorPicker
-                    color={color}
-                    onChange={setColor}
+                    color={inputValues[2]}
+                    onChange={updateColorValue}
                 />
             </div>
         </section>

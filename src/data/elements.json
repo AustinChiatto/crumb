@@ -1,29 +1,43 @@
 [
     {
         "id": 1,
-        "label": "Coding Queens",
-        "style": {
+        "label": "Click",
+        "color": {
             "background": "#974ec2",
+            "font": "#fff",
+            "other": "#513f99"
+        },
+        "style": {
             "paddingBlock": "1.5rem",
             "paddingInline": "2rem",
-            "color": "#fff",
             "fontSize": "1rem",
-            "boxShadow": "0px 3px 0px 0px #513f99",
-            "borderRadius": "0.5rem"
+            "boxShadow": "0 3px 0 0 #513f99",
+            "borderRadius": "0.5rem",
+            "transition": "all 50ms ease-in-out"
+        },
+        "hovered": {
+            "transform": "translateY(3px)",
+            "boxShadow": "0 0 0 0 #513f99"
         }
         
     },
     {
         "id": 2,
-        "label": "button",
-        "style": {
+        "label": "Click",
+        "color": {
             "background": "#984063",
+            "font": "#ff9677"
+        },
+        "style": {
             "paddingBlock": "1rem",
             "paddingInline": "2rem",
-            "color": "#ff9677",
             "fontSize": "1rem",
-            "border": "0.125rem solid #ff9677",
-            "borderRadius": "5rem"
+            "borderRadius": "5rem",
+            "transition": "all 150ms ease-in-out"
+        },
+        "hovered": {
+            "color": "#984063",
+            "background": "#ff9677"
         }
     }
 ]
