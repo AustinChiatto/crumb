@@ -22,7 +22,7 @@ export default function SnippetInput() {
 
     // Handle color change
     const handleColorChange = (newColor) => {
-        updateValues(2, "update", newColor); // Update the color value directly in the inputValue state
+        updateValues(2, "colorChange", newColor); // Update the color value directly in the inputValue state
     };
 
     return (

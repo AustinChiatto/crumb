@@ -26,29 +26,27 @@ export default function CodeOutput() {
     // context that hold input values
     const inputValues = useSnippetEdit();
 
-    const cssSnippet = `
-    /* base style */
-    .button {
-        padding-inline: ${inputValues[0]}rem;
-        padding-block: ${inputValues[1]}rem;
-        background: ${inputValues[2]};
-        box-shadow: 0rem ${inputValues[1] * 0.25}rem 0rem 0rem #513f99;
-        border-radius: ${inputValues[3]}rem;
-        color: #fff;
-        font-size: ${inputValues[4]}rem;
-        transition: all 50ms ease-in-out;
-    }
+    const cssSnippet = `/* base style */
+.button {
+    padding-inline: ${inputValues[0]}rem;
+    padding-block: ${inputValues[1]}rem;
+    background: ${inputValues[2]};
+    box-shadow: 0rem ${inputValues[1] * 0.25}rem 0rem 0rem #513f99;
+    border-radius: ${inputValues[3]}rem;
+    color: #fff;
+    font-size: ${inputValues[4]}rem;
+    transition: all 50ms ease-in-out;
+}
 
-    /* hover style */
-    .button:hover {
-        transform: translateY(${inputValues[1] * 0.25}rem);
-        box-shadow: 0rem 0rem 0rem 0rem #513f99;
-    }
+/* hover style */
+.button:hover {
+    transform: translateY(${inputValues[1] * 0.25}rem);
+    box-shadow: 0rem 0rem 0rem 0rem #513f99;
+}
     `;
 
-    const htmlSnippet = `
-    // tag
-    <button class="button">Click</button>
+    const htmlSnippet = `<!-- button tag -->
+<button class="button">Click</button>
     `;
 
     // loop through buttons

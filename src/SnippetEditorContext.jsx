@@ -55,7 +55,7 @@ export function SnippetEditorProvider({ children }) {
                 const newValues = [...prevValues];
                 newValues[index] = newValue;
                 return newValues;
-            } else if (operation === "update") {
+            } else if (operation === "colorChange") {
                 const newValues = [...prevValues];
                 newValues[index] = newColor;
                 return newValues;
