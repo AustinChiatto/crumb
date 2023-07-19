@@ -1,0 +1,30 @@
+@use "../../../../../../styles/utilities/variables" as *;
+@use "../../../../../../styles/utilities/mixins" as m;
+
+// container
+.Header {
+    color: #F7F8F980;
+    @include m.flex(flex-start, center);
+    margin-bottom: 1rem;
+}
+
+// input for filename
+.FileName {
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+    left: -1rem;
+}
+
+// browser buttons
+.BrowserButton {
+    display: inline-block;
+    width: 0.75rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: #F7F8F940;
+}
+
+.BrowserButton + .BrowserButton {
+    margin-left: 0.5rem;
+}

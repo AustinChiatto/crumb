@@ -10,6 +10,7 @@ import CodeBlock from "../../global/CodeBlock/CodeBlock";
 
 // styles
 import styles from "./CodeOutput.module.scss";
+import github from "react-syntax-highlighter/dist/esm/styles/hljs/github";
 
 export default function CodeOutput() {
     const [codeType, setCodeType] = useState([
@@ -73,6 +74,7 @@ export default function CodeOutput() {
                 <CodeBlock
                     code={codeType[0].isActive ? htmlSnippet : cssSnippet}
                     language={codeType[0].isActive ? "html" : "css"}
+                    theme={github}
                 ></CodeBlock>
             </div>
         </section>

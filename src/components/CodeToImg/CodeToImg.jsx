@@ -1,11 +1,12 @@
 // styles
-import styles from "./CodeToImg.module.scss";
+import Output from "./Output/Output";
+import Sidebar from "./Sidebar/Sidebar";
 
 export default function CodeToImg() {
     return (
         <>
-            <section className={`${styles.Sidebar} card`}></section>
-            <section className={`${styles.Output} card`}></section>
+            <Sidebar />
+            <Output />
         </>
     );
 }

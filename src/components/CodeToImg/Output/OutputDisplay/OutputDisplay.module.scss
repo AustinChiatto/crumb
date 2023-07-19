@@ -1,0 +1,11 @@
+@use "../../../../styles/utilities/mixins" as m;
+
+// container of the rendered image
+// ===========================
+.OutputDisplay {
+    flex-grow: 1;
+    @include m.flex(center, center);
+    width: 100%;
+    max-height: 100%
+}
+

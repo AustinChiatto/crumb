@@ -1,0 +1,11 @@
+@use "../../../styles/utilities/variables" as *;
+@use "../../../styles/utilities/mixins" as m;
+
+// output
+// ===========================
+.Output {
+    @include m.gridSpan(4, 9, 1, 12);
+    @include m.flex(center, center, column);
+    gap: 2rem;
+}
+
