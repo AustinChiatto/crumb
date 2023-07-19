@@ -3,9 +3,11 @@ import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 
 import css from "react-syntax-highlighter/dist/esm/languages/hljs/css";
 import html from "react-syntax-highlighter/dist/cjs/languages/hljs/htmlbars";
+import typescript from "react-syntax-highlighter/dist/cjs/languages/hljs/typescript";
 
 SyntaxHighlighter.registerLanguage("css", css);
 SyntaxHighlighter.registerLanguage("html", html);
+SyntaxHighlighter.registerLanguage("typescript", typescript);
 
 export default function CodeBlock({ code, language, customStyle, theme }) {
     const fontFaceStyle = {
