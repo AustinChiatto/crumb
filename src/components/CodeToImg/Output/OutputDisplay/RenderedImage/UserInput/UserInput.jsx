@@ -8,6 +8,7 @@ import CodeBlock from "../../../../../global/CodeBlock/CodeBlock";
 import styles from "./UserInput.module.scss";
 import github from "react-syntax-highlighter/dist/esm/styles/hljs/github";
 import atom from "react-syntax-highlighter/dist/esm/styles/hljs/atom-one-light";
+import stack from "react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-light";
 
 export default function UserInput() {
     const [codeInput, setCodeInput] = useState(`.text-container {
@@ -33,6 +34,7 @@ export default function UserInput() {
                 <CodeBlock
                     code={codeInput}
                     language={"css"}
+                    theme={stack}
                     customStyle={{
                         margin: "0",
                         fontFamily: "'Inter', sans-serif",
@@ -47,7 +49,6 @@ export default function UserInput() {
                         height: "auto",
                         background: "none",
                     }}
-                    theme={atom}
                 ></CodeBlock>
             </div>
         </>
