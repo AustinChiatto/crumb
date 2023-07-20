@@ -1,4 +1,4 @@
-import CodeToImg from "./views/CodeToImg.jsx";
+import CodeToImgView from "./views/CodeToImg.jsx";
 import GridTool from "./views/GridTool.jsx";
 import SnippetEditorView from "./views/SnippetEditor.jsx";
 import "./app.scss";
@@ -20,10 +20,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/code-to-img",
-        element: <CodeToImg />,
+        element: <CodeToImgView />,
     },
     {
-        path: "/snippet-editor",
+        // id param is used to pass in elem info from JSON file
+        path: "/snippet-editor/:id",
         element: <SnippetEditorView />,
     },
 ]);

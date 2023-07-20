@@ -1,0 +1,23 @@
+@use "../../../../../styles/utilities/mixins" as m;
+
+// rendered image -- downloaded
+// ===========================
+.RenderedImage {
+    background: linear-gradient(135deg, #30c5d2 0%, #471069 100%);
+    padding: 8rem;
+    @include m.flex(center, center);
+    position: relative;
+    max-width: 100%;
+}
+
+// container that holds the code
+// ===========================
+.CodeContainer {
+    border-radius: 1rem;
+    background: #F7F8F998;
+    backdrop-filter: blur(14px);
+    padding: 1rem;
+    padding-right: 2rem;
+    min-width: 30rem;
+    height: fit-content;
+}

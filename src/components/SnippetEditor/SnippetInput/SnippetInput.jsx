@@ -1,5 +1,6 @@
 // hooks
 import { useState } from "react";
+import { useSnippetEdit, useUpdateValues } from "../../../SnippetEditorContext";
 import { HexColorPicker } from "react-colorful";
 
 // icons
@@ -13,7 +14,16 @@ import styles from "./SnippetInput.module.scss";
 import SnippetProperty from "./SnippetProperty/SnippetProperty";
 
 export default function SnippetInput() {
-    const [color, setColor] = useState("#aabbcc");
+    // contexts
+    const inputValues = useSnippetEdit();
+    const updateInput = useUpdateValues();
+
+    const { updateValues } = updateInput;
+
+    // Handle color change
+    const handleColorChange = (newColor) => {
+        updateValues(2, "colorChange", newColor); // Update the color value directly in the inputValue state
+    };
 
     return (
         <section className={styles.SnippetInput}>
@@ -23,24 +33,28 @@ export default function SnippetInput() {
                 <div className={styles.PropertiesContainer}>
                     <ul className={styles.PropertiesList}>
                         <SnippetProperty
-                            index={1}
+                            index={0}
+                            value={inputValues[0]}
+                            updateValue={updateValues}
                             icon={iconPaddingHorizontal}
-                            defaultValue={1}
                         />
                         <SnippetProperty
-                            index={2}
+                            index={1}
+                            value={inputValues[1]}
+                            updateValue={updateValues}
                             icon={iconPaddingVertical}
-                            defaultValue={2}
                         />
                         <SnippetProperty
                             index={3}
+                            value={inputValues[3]}
+                            updateValue={updateValues}
                             icon={iconBorderRadius}
-                            defaultValue={3}
                         />
                         <SnippetProperty
                             index={4}
+                            value={inputValues[4]}
+                            updateValue={updateValues}
                             icon={iconFontSize}
-                            defaultValue={4}
                         />
                     </ul>
                 </div>
@@ -48,8 +62,8 @@ export default function SnippetInput() {
             {/* color */}
             <div className={`${styles.SnippetColor} snippet-color`}>
                 <HexColorPicker
-                    color={color}
-                    onChange={setColor}
+                    color={inputValues[2]}
+                    onChange={handleColorChange}
                 />
             </div>
         </section>
