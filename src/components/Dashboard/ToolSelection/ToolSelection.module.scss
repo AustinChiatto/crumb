@@ -15,6 +15,7 @@
 // ===========================
 .ToolList {
     max-width: fit-content;
-    height: 15rem;
     @include m.grid(12, false, 1.5rem);
+    align-items: center;
+    max-height: 100%;
 }

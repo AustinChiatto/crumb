@@ -8,7 +8,8 @@ import styles from "./SnippetGrid.module.scss";
 
 export default function SnippetGrid() {
     return (
-        <div className={styles.SnippetWrapper}>
+        <section className={styles.SnippetWrapper}>
+            <h2 className="section-header">Snippets</h2>
             <div className={styles.SnippetSorting}>
                 <ButtonPrimary btnLabel="Buttons"></ButtonPrimary>
                 <ButtonPrimary btnLabel="Cards"></ButtonPrimary>
@@ -22,6 +23,6 @@ export default function SnippetGrid() {
                     />
                 ))}
             </section>
-        </div>
+        </section>
     );
 }

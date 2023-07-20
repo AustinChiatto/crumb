@@ -16,3 +16,9 @@
     margin-block: 1rem;
 }
 
+// snippet sorting
+// ===========================
+.SnippetSorting {
+    @include m.flex(flex-start, center);
+    gap: 0.5rem;
+}
