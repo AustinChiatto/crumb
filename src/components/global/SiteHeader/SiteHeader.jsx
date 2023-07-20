@@ -3,7 +3,7 @@ import styles from "./SiteHeader.module.scss";
 
 export default function SiteHeader() {
     return (
-        <header className={`card ${styles.SiteHeader}`}>
+        <header className={`${styles.SiteHeader}`}>
             <nav className={styles.SiteNav}>
                 <a href={`/home`}>Codependent</a>
                 <ul className={styles.InternalLinks}>

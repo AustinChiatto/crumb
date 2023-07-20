@@ -5,10 +5,7 @@
 // ===========================
 .ToolSelection {
     @include m.gridSpan(1, 12);
-    background: $color-card-bg;
-    padding: 2.25rem;
-    padding-bottom: 2.5rem;
-    border-radius: $border-radius;
+    margin-bottom: 1.5rem;
 }
 
 // tool list

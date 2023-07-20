@@ -13,7 +13,8 @@ const tools = [
 export default function ToolSelection() {
     return (
         <section className={styles.ToolSelection}>
-            <ol className={styles.ToolList}>
+            <h2 className="section-header">Tools</h2>
+            <ol className={`card ${styles.ToolList}`}>
                 {Object.values(tools).map((e) => (
                     <Tool
                         key={e.index}
