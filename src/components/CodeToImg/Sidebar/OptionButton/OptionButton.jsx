@@ -7,7 +7,7 @@ export default function OptionButton({ index, icon, background, customStyle, isA
             className={styles.Option}
             id={index}
             style={{
-                background: background ? `${background}` : "",
+                background: isActive ? (background ? `${background}` : "#e5eff9") : background ? `${background}` : "#fefefe",
                 border: isActive ? "0.125rem solid #63adf2" : "0.0625rem solid #DEDEE0",
             }}
             onClick={() => updateInput(index)}

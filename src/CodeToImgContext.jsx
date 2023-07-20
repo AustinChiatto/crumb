@@ -23,11 +23,12 @@ export function CodeToImgProvider({ children }) {
         { key: 0, index: 0, active: true, icon: true, customStyle: { opacity: "0.85", background: "#fefefe", borderRight: "0.25rem solid #dedee0", borderBottom: "0.25rem solid #dedee0" }, containerStyle: { background: "rgba(254,254,254,0.7)", border: "0.33rem solid rgba(254,254,254,0.5)", backdropFilter: "blur(1rem)" } },
         { key: 1, index: 1, active: false, icon: true, customStyle: { opacity: "0.65", background: "#151515", borderRight: "0.25rem solid #3f3d3e", borderBottom: "0.25rem solid #3f3d3e" }, containerStyle: { background: "rgba(35,35,35,0.9)", border: "0.33rem solid #a5aab330", backdropFilter: "blur(1rem)" } },
         { key: 2, index: 2, active: false, icon: true, customStyle: { background: "#fefefe", borderRight: "0.125rem solid #1e1e1e", borderBottom: "0.125rem solid #1e1e1e" }, containerStyle: { background: "#F7F8F999", border: "0.250rem solid #3f3d3e", backdropFilter: "blur(1rem)" } },
-        { key: 3, index: 3, active: false, icon: true, customStyle: {}, containerStyle: { background: "rgba(254,254,254,0.7)", border: "none" } },
+        { key: 3, index: 3, active: false, icon: true, customStyle: { background: "#fefefe" }, containerStyle: { background: "rgba(254,254,254,0.7)", border: "none" } },
         { key: 4, index: 4, active: false, icon: true, customStyle: { background: "#3f3d3e" }, containerStyle: { background: "rgba(35,35,35,0.86)", border: "none" } },
-        { key: 5, index: 5, active: false, icon: true, customStyle: { opacity: "0.85", borderRight: "0.25rem solid #dedee0", borderBottom: "0.25rem solid #dedee0" }, containerStyle: { background: "#F7F8F999", border: "none", backdropFilter: "blur(1rem)" } },
+        { key: 5, index: 5, active: false, icon: true, customStyle: { background: "#fefefe", opacity: "0.85", borderRight: "0.25rem solid #dedee0", borderBottom: "0.25rem solid #dedee0" }, containerStyle: { background: "#F7F8F999", border: "none", backdropFilter: "blur(1rem)" } },
     ]);
 
+    // container style function that sets active container styles on click
     const handleContainerStyle = (optionId) => {
         const updateUserOption = containerStyleState.map((option) => ({
             ...option,
@@ -65,6 +66,7 @@ export function CodeToImgProvider({ children }) {
         },
     ]);
 
+    // box-shadow style function that sets active box-shadow styles on click
     const handleContainerShadow = (optionId) => {
         const updateUserOption = containerShadowState.map((option) => ({
             ...option,
@@ -76,8 +78,8 @@ export function CodeToImgProvider({ children }) {
     // default state for background styles
     // ===========================
     const [backgroundStyleState, setBackgroundStyleState] = useState([
-        { key: 0, index: 0, active: true, backgroundStyle: "linear-gradient(135deg, #ef745c 0%, #34073d 100%)" },
-        { key: 1, index: 1, active: false, backgroundStyle: "linear-gradient(135deg, #0061ff 0%, #60efff 100%)" },
+        { key: 0, index: 0, active: true, backgroundStyle: "linear-gradient(135deg, #0061ff 0%, #60efff 100%)" },
+        { key: 1, index: 1, active: false, backgroundStyle: "linear-gradient(135deg, #ef745c 0%, #34073d 100%)" },
         { key: 2, index: 2, active: false, backgroundStyle: "linear-gradient(135deg, #ff1b6b 0%, #45caff 100%)" },
         { key: 3, index: 3, active: false, backgroundStyle: "linear-gradient(135deg, #40c9ff 0%, #e81cff 100%)" },
         { key: 4, index: 4, active: false, backgroundStyle: "linear-gradient(135deg, #ffa585 0%, #ffeda0 100%)" },
@@ -87,6 +89,7 @@ export function CodeToImgProvider({ children }) {
         { key: 8, index: 8, active: false, backgroundStyle: "linear-gradient(135deg, #ff5858 0%, #ffc8c8 100%)" },
     ]);
 
+    // background style function that sets active background styles on click
     const handleBackground = (optionId) => {
         const updateUserOption = backgroundStyleState.map((option) => ({
             ...option,
@@ -95,12 +98,14 @@ export function CodeToImgProvider({ children }) {
         setBackgroundStyleState(updateUserOption);
     };
 
+    // values of all states passed through the context value
     const contextValues = {
         containerStyles: containerStyleState,
         BoxShadowStyles: containerShadowState,
         backgroundStyles: backgroundStyleState,
     };
 
+    // all setState methods passed through the context value
     const contextUpdate = {
         handleContainerStyle: handleContainerStyle,
         handleContainerShadow: handleContainerShadow,
@@ -113,10 +118,3 @@ export function CodeToImgProvider({ children }) {
         </codeToImgContext.Provider>
     );
 }
-
-// controller
-// loop through array for each group of buttons
-// check which one is active
-// get styles from active button
-// pass values to image container
-// if new button is pressed, set it to active
