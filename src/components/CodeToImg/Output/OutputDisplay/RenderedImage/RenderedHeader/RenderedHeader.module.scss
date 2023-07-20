@@ -3,7 +3,7 @@
 
 // container
 .Header {
-    color: #F7F8F980;
+    color: #F7F8F9;
     @include m.flex(flex-start, center);
     margin-bottom: 1rem;
 }
@@ -22,7 +22,7 @@
     width: 0.75rem;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    background: #F7F8F960;
+    background: #Fff;
 }
 
 .BrowserButton + .BrowserButton {
