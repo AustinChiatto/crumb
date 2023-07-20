@@ -3,7 +3,7 @@
 // rendered image -- downloaded
 // ===========================
 .RenderedImage {
-    background: linear-gradient(136deg, #A68BE1 0%, #6A3FC6 48.45%, #89DEFB 100%);
+    background: linear-gradient(135deg, #30c5d2 0%, #471069 100%);
     padding: 8rem;
     @include m.flex(center, center);
     position: relative;
@@ -15,7 +15,7 @@
 .CodeContainer {
     border-radius: 1rem;
     border: 3px solid #F7F8F950;
-    background: #F7F8F980;
+    background: #F7F8F998;
     box-shadow: 14px 13px 10px 0px rgba(0, 0, 0, 0.06);
     backdrop-filter: blur(14px);
     padding: 1rem;

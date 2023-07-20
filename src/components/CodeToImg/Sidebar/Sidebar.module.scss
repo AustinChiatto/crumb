@@ -5,4 +5,19 @@
 // ===========================
 .Sidebar {
     @include m.gridSpan(1, 3, 1, 12);
+    @include m.grid(1);
+    gap: 1rem;
 }
+
+.SidebarSection + .SidebarSection {
+    // margin-top: 2.5rem;
+}
+
+.Label {
+    margin-bottom: 1rem
+}
+
+.OptionGrid {
+    @include m.grid(3, false, 0.5rem);
+}
+
