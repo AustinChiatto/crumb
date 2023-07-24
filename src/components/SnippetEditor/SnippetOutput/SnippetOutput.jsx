@@ -69,7 +69,7 @@ export default function SnippetOutput() {
         ...editableStyles,
         ...elemMatch.baseStyles,
         // optional styles with dynamic color
-        borderColor: elemMatch.baseStyles.border ? colorSecondary : {},
+        border: `${elemMatch.baseStyles.borderWidth ? elemMatch.baseStyles.borderWidth : "0px"} ${elemMatch.baseStyles.borderStyle ? elemMatch.baseStyles.borderStyle : "0px"} ${elemMatch.baseStyles.borderColor ? colorSecondary : ""}`,
         boxShadow: `${elemMatch.baseStyles.boxShadowX ? elemMatch.baseStyles.boxShadowX : "0px"} ${elemMatch.baseStyles.boxShadowY ? elemMatch.baseStyles.boxShadowY : "0px"} ${elemMatch.baseStyles.boxShadowBlur ? elemMatch.baseStyles.boxShadowBlur : "0px"} ${elemMatch.baseStyles.boxShadowSpread ? elemMatch.baseStyles.boxShadowSpread : "0px"} ${elemMatch.baseStyles.boxShadowColor ? colorSecondary : ""}`,
     };
 
@@ -79,7 +79,7 @@ export default function SnippetOutput() {
         ...editableStyles,
         ...elemMatch.hoverStyles,
         // optional styles with dynamic color
-        borderColor: elemMatch.hoverStyles.border ? colorSecondary : {},
+        border: `${elemMatch.hoverStyles.borderWidth ? elemMatch.hoverStyles.borderWidth : "0px"} ${elemMatch.hoverStyles.borderStyle ? elemMatch.hoverStyles.borderStyle : "0px"} ${elemMatch.hoverStyles.borderColor ? colorSecondary : ""}`,
         boxShadow: `${elemMatch.hoverStyles.boxShadowX ? elemMatch.hoverStyles.boxShadowX : "0px"} ${elemMatch.hoverStyles.boxShadowY ? elemMatch.hoverStyles.boxShadowY : "0px"} ${elemMatch.hoverStyles.boxShadowBlur ? elemMatch.hoverStyles.boxShadowBlur : "0px"} ${elemMatch.hoverStyles.boxShadowSpread ? elemMatch.hoverStyles.boxShadowSpread : "0px"} ${elemMatch.hoverStyles.boxShadowColor ? colorSecondary : ""}`,
     };
 

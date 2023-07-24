@@ -1,8 +1,12 @@
 // hooks
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 // context
 import { useSnippetEdit } from "../../../SnippetEditorContext";
+
+// data
+import elemData from "../../../data/elements.json";
 
 // components
 import ButtonPrimary from "../../global/ButtonPrimary/ButtonPrimary";
@@ -22,43 +26,56 @@ export default function CodeOutput() {
     ]);
 
     // Handle button click
-    // ===========================
     const handleButtonClick = (codeTypeId) => {
         const updatedCodeType = codeType.map((codeType) => (codeType.id === codeTypeId ? { ...codeType, isActive: true } : { ...codeType, isActive: false }));
         setCodeType(updatedCodeType);
     };
+
+    // Get data for matching element
+    // ===========================
+    const params = useParams(); // id passed to new page via router
+    const elemMatch = elemData.find((elem) => elem.id == params.id); // gets the json object that matches the id passed via param
+
+    // handle missing element
+    if (!elemMatch) {
+        console.log("No Matching Element");
+    }
+
+    // Format ID
+    // ===========================
+    // adds 0 to the beginning of the string until it is 3 characters long
+    const formattedId = elemMatch.id.toString().padStart(3, "0");
 
     // Displayed Code
     // ===========================
     // context that hold input values
     const inputValues = useSnippetEdit();
 
-    // elemMatch with param
-    //
-
     // Displayed CSS
     const cssSnippet = `/* base style */
-.button {
+.button-${formattedId} {
     padding-inline: ${inputValues[0]}rem;
     padding-block: ${inputValues[1]}rem;
-    background: ${inputValues[2]};
-    box-shadow: 0rem ${inputValues[1] * 0.25}rem 0rem 0rem #513f99;
     border-radius: ${inputValues[3]}rem;
-    color: #fff;
+    background: ${inputValues[2]};
     font-size: ${inputValues[4]}rem;
-    transition: all 50ms ease-in-out;
+    color: ${inputValues[5]};
+    ${elemMatch.baseStyles.boxShadowColor ? `box-shadow: ${elemMatch.baseStyles.boxShadowX ? elemMatch.baseStyles.boxShadowX : "0px"} ${elemMatch.baseStyles.boxShadowY ? elemMatch.baseStyles.boxShadowY : "0px"} ${elemMatch.baseStyles.boxShadowBlur ? elemMatch.baseStyles.boxShadowBlur : "0px"} ${elemMatch.baseStyles.boxShadowSpread ? elemMatch.baseStyles.boxShadowSpread : "0px"} ${elemMatch.baseStyles.boxShadowColor ? inputValues[6] : ""};` : ""}
+    ${elemMatch.baseStyles.borderStyle ? `border: ${elemMatch.baseStyles.borderWidth ? elemMatch.baseStyles.borderWidth : "0px"} ${elemMatch.baseStyles.borderStyle ? elemMatch.baseStyles.borderStyle : "0px"} ${elemMatch.baseStyles.borderColor ? inputValues[6] : ""};` : ""}
+    ${elemMatch.baseStyles.transition ? `transition: ${elemMatch.baseStyles.transition};` : ""}
 }
 
 /* hover style */
-.button:hover {
-    transform: translateY(${inputValues[1] * 0.25}rem);
-    box-shadow: 0rem 0rem 0rem 0rem #513f99;
-}
-    `;
+.button-${formattedId}:hover {
+    ${elemMatch.hoverStyles.borderRadius ? `border-radius: ${elemMatch.hoverStyles.borderRadius};` : ""}
+    ${elemMatch.hoverStyles.transform ? `transform: ${elemMatch.hoverStyles.transform};` : ""}
+    ${elemMatch.hoverStyles.boxShadowColor ? `box-shadow: ${elemMatch.hoverStyles.boxShadowX ? elemMatch.hoverStyles.boxShadowX : "0px"} ${elemMatch.hoverStyles.boxShadowY ? elemMatch.hoverStyles.boxShadowY : "0px"} ${elemMatch.hoverStyles.boxShadowBlur ? elemMatch.hoverStyles.boxShadowBlur : "0px"} ${elemMatch.hoverStyles.boxShadowSpread ? elemMatch.hoverStyles.boxShadowSpread : "0px"} ${elemMatch.hoverStyles.boxShadowColor ? inputValues[6] : ""};` : ""}
+    ${elemMatch.hoverStyles.borderStyle ? `border: ${elemMatch.hoverStyles.borderWidth ? elemMatch.hoverStyles.borderWidth : "0px"} ${elemMatch.hoverStyles.borderStyle ? elemMatch.hoverStyles.borderStyle : "0px"} ${elemMatch.hoverStyles.borderColor ? inputValues[6] : ""};` : ""}
+}`;
 
     // Displayed HTML
     const htmlSnippet = `<!-- button tag -->
-<button class="button">Click</button>
+<button class="button-${formattedId}">${elemMatch.label}</button>
     `;
 
     return (

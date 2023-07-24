@@ -39,7 +39,7 @@ export default function SnippetCard({ id }) {
         // optional styles set in json
         background: elemMatch.color.primary,
         color: elemMatch.color.font,
-        borderColor: elemMatch.baseStyles.border ? elemMatch.color.secondary : {},
+        border: `${elemMatch.baseStyles.borderWidth ? elemMatch.baseStyles.borderWidth : "0px"} ${elemMatch.baseStyles.borderStyle ? elemMatch.baseStyles.borderStyle : "0px"} ${elemMatch.baseStyles.borderColor ? elemMatch.baseStyles.borderColor : ""}`,
         boxShadow: `${elemMatch.baseStyles.boxShadowX ? elemMatch.baseStyles.boxShadowX : "0px"} ${elemMatch.baseStyles.boxShadowY ? elemMatch.baseStyles.boxShadowY : "0px"} ${elemMatch.baseStyles.boxShadowBlur ? elemMatch.baseStyles.boxShadowBlur : "0px"} ${elemMatch.baseStyles.boxShadowSpread ? elemMatch.baseStyles.boxShadowSpread : "0px"} ${elemMatch.baseStyles.boxShadowColor ? elemMatch.color.secondary : ""}`,
     };
 
@@ -51,7 +51,7 @@ export default function SnippetCard({ id }) {
         // optional styles set in json
         background: elemMatch.color.primary,
         color: elemMatch.color.font,
-        borderColor: elemMatch.hoverStyles.border ? elemMatch.color.secondary : {},
+        border: `${elemMatch.hoverStyles.borderWidth ? elemMatch.hoverStyles.borderWidth : "0px"} ${elemMatch.hoverStyles.borderStyle ? elemMatch.hoverStyles.borderStyle : "0px"} ${elemMatch.hoverStyles.borderColor ? elemMatch.hoverStyles.borderColor : ""}`,
         boxShadow: `${elemMatch.hoverStyles.boxShadowX ? elemMatch.hoverStyles.boxShadowX : "0px"} ${elemMatch.hoverStyles.boxShadowY ? elemMatch.hoverStyles.boxShadowY : "0px"} ${elemMatch.hoverStyles.boxShadowBlur ? elemMatch.hoverStyles.boxShadowBlur : "0px"} ${elemMatch.hoverStyles.boxShadowSpread ? elemMatch.hoverStyles.boxShadowSpread : "0px"} ${elemMatch.hoverStyles.boxShadowColor ? elemMatch.color.secondary : ""}`,
     };
 

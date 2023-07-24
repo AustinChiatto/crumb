@@ -10,10 +10,10 @@ export default function SnippetGrid() {
     return (
         <section className={styles.SnippetWrapper}>
             <h2 className="section-header">Snippets</h2>
-            <div className={styles.SnippetSorting}>
+            {/* <div className={styles.SnippetSorting}>
                 <ButtonPrimary btnLabel="Buttons"></ButtonPrimary>
                 <ButtonPrimary btnLabel="Cards"></ButtonPrimary>
-            </div>
+            </div> */}
             <section className={styles.SnippetGrid}>
                 {Object.values(elementData).map((element) => (
                     <SnippetCard
