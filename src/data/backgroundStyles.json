@@ -1,0 +1,11 @@
+[
+    { "key": 0, "index": 0, "active": true, "backgroundStyle": "linear-gradient(135deg, #0061ff 0%, #60efff 100%)" },
+    { "key": 1, "index": 1, "active": false, "backgroundStyle": "linear-gradient(135deg, #b60e45 0%, #d693ff 100%)" },
+    { "key": 2, "index": 2, "active": false, "backgroundStyle": "linear-gradient(135deg, #10cda5 0%, #c3fcd4 100%)" },
+    { "key": 3, "index": 3, "active": false, "backgroundStyle": "linear-gradient(135deg, #9fa6d5 0%, #e9f5c9 100%)" },
+    { "key": 4, "index": 4, "active": false, "backgroundStyle": "linear-gradient(135deg, #ffa585 0%, #ffeda0 100%)" },
+    { "key": 5, "index": 5, "active": false, "backgroundStyle": "linear-gradient(135deg, #afbbf8 0%, #53d2db 100%)" },
+    { "key": 6, "index": 6, "active": false, "backgroundStyle": "linear-gradient(135deg, #ff0f7b 0%, #f89b29 100%)" },
+    { "key": 7, "index": 7, "active": false, "backgroundStyle": "linear-gradient(135deg, #696eff 0%, #f8acff 100%)" },
+    { "key": 8, "index": 8, "active": false, "backgroundStyle": "linear-gradient(135deg, #ff5858 0%, #ffc8c8 100%)" }
+]

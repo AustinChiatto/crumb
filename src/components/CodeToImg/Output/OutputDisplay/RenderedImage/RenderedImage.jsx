@@ -12,6 +12,8 @@ export default function RenderedImage({ toImageRef }) {
     const { containerStyles, BoxShadowStyles, backgroundStyles } = useCodeToImg();
 
     const containerMatch = containerStyles.find((e) => e.active);
+    const containerMatchHeader = containerMatch.containerHeader;
+    const containerCodeTheme = containerMatch.themeLight;
     const shadowMatch = BoxShadowStyles.find((e) => e.active);
     const backgroundMatch = backgroundStyles.find((e) => e.active);
 
@@ -25,8 +27,8 @@ export default function RenderedImage({ toImageRef }) {
                 className={styles.CodeContainer}
                 style={{ ...containerMatch.containerStyle, boxShadow: `${shadowMatch.shadowStyle.boxShadow}` }}
             >
-                <RenderedHeader />
-                <UserInput />
+                <RenderedHeader containerHeader={containerMatchHeader} />
+                <UserInput themeLight={containerCodeTheme} />
             </div>
         </div>
     );

@@ -9,8 +9,9 @@ import styles from "./UserInput.module.scss";
 import github from "react-syntax-highlighter/dist/esm/styles/hljs/github";
 import atom from "react-syntax-highlighter/dist/esm/styles/hljs/atom-one-light";
 import stack from "react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-light";
+import stackDark from "react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-dark";
 
-export default function UserInput() {
+export default function UserInput({ themeLight }) {
     const [codeInput, setCodeInput] = useState(`import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
@@ -39,7 +40,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <CodeBlock
                     code={codeInput}
                     language={"typescript"}
-                    theme={stack}
+                    theme={themeLight ? stack : stackDark}
                     customStyle={{
                         margin: "0",
                         fontFamily: "'Inter', sans-serif",
