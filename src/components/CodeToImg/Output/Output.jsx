@@ -1,5 +1,5 @@
 // hooks
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 // convert component to image
 import { toPng } from "html-to-image";
@@ -11,6 +11,11 @@ import OutputDisplay from "./OutputDisplay/OutputDisplay";
 import OutputOptions from "./OutputOptions/OutputOptions";
 
 export default function Output() {
+    const [selectedOption, setSelectedOption] = useState("Typescript");
+
+    const handleOptionChange = (event) => {
+        setSelectedOption(event.target.value);
+    };
     // reference for output display
     const toImageRef = useRef(null);
 
@@ -32,8 +37,15 @@ export default function Output() {
     return (
         <section className={`${styles.Output} card`}>
             <OutputDimensions />
-            <OutputDisplay toImageRef={toImageRef} />
-            <OutputOptions htmlToImageConvert={htmlToImageConvert} />
+            <OutputDisplay
+                toImageRef={toImageRef}
+                codeLang={selectedOption}
+            />
+            <OutputOptions
+                htmlToImageConvert={htmlToImageConvert}
+                selectedOption={selectedOption}
+                handleOptionChange={handleOptionChange}
+            ></OutputOptions>
         </section>
     );
 }

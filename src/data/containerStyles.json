@@ -48,12 +48,12 @@
         "icon": true,
         "customStyle": {
             "background": "#fefefe",
-            "borderRight": "0.125rem solid #1e1e1e",
-            "borderBottom": "0.125rem solid #1e1e1e"
+            "borderRight": "0.0625rem solid #1e1e1e",
+            "borderBottom": "0.0625rem solid #1e1e1e"
         },
         "containerStyle": {
             "background": "rgba(254,254,254,0.8)",
-            "border": "0.250rem solid #3f3d3e",
+            "border": "0.125rem solid #3f3d3e",
             "backdropFilter": "blur(1rem)"
         },
         "containerHeader": {
@@ -84,10 +84,11 @@
         "active": false,
         "icon": true,
         "customStyle": {
-            "background": "#3f3d3e"
+            "opacity": "0.65",
+            "background": "#151515"
         },
         "containerStyle": {
-            "background": "rgba(35,35,35,0.86)",
+            "background": "rgba(35,35,35,0.9)",
             "border": "none"
         },
         "containerHeader": {

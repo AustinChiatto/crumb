@@ -8,7 +8,7 @@ import UserInput from "./UserInput/UserInput";
 // styles
 import styles from "./RenderedImage.module.scss";
 
-export default function RenderedImage({ toImageRef }) {
+export default function RenderedImage({ toImageRef, codeLang }) {
     const { containerStyles, BoxShadowStyles, backgroundStyles } = useCodeToImg();
 
     const containerMatch = containerStyles.find((e) => e.active);
@@ -28,7 +28,10 @@ export default function RenderedImage({ toImageRef }) {
                 style={{ ...containerMatch.containerStyle, boxShadow: `${shadowMatch.shadowStyle.boxShadow}` }}
             >
                 <RenderedHeader containerHeader={containerMatchHeader} />
-                <UserInput themeLight={containerCodeTheme} />
+                <UserInput
+                    themeLight={containerCodeTheme}
+                    codeLang={codeLang}
+                />
             </div>
         </div>
     );
