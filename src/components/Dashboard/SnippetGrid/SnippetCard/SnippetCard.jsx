@@ -1,8 +1,5 @@
 // hooks
-import React, { useState } from "react";
-
-// context
-import { useSnippetEdit } from "../../../../SnippetEditorContext";
+import { useState } from "react";
 
 // data
 import elemData from "../../../../data/elements.json";
@@ -10,14 +7,8 @@ import elemData from "../../../../data/elements.json";
 // styles
 import styles from "./SnippetCard.module.scss";
 
-export default function SnippetCard({ id, label }) {
-    // adds 0 to the beginning of the string until it is 3 characters long
-    const formattedId = id.toString().padStart(3, "0");
-    // handle snippet values
-    // ===========================
-    const inputValues = useSnippetEdit(); // values of edit controls from context
-
-    // handle initial snippet render
+export default function SnippetCard({ id }) {
+    // Find matching element
     // ===========================
     const elemMatch = elemData.find((elem) => elem.id == id); // gets the json object that matches the id passed via param
 
@@ -26,10 +17,7 @@ export default function SnippetCard({ id, label }) {
         console.log("No Matching Element"); // Handle case when the object with the target ID is not found
     }
 
-    // destructure stored props from json
-    const baseStyles = elemMatch.style;
-
-    // handle hover state
+    // Handle Hover State
     // ===========================
     const [isHovered, setIsHovered] = useState(false); // state for hover check
 
@@ -43,18 +31,34 @@ export default function SnippetCard({ id, label }) {
         setIsHovered(false);
     };
 
-    // add hover styles if cursor on element
-    const hoverStyles = isHovered ? elemMatch.hovered : {};
-
-    // set snippet values
+    // Base Styles
     // ===========================
-    const inlineStyles = {
-        ...baseStyles,
-        background: elemMatch.color.background,
+    const baseStyles = {
+        ...elemMatch.editableStyles, // editable styles from the json of the matching element
+        ...elemMatch.baseStyles, // base styles from the json of the matching element
+        // optional styles set in json
+        background: elemMatch.color.primary,
         color: elemMatch.color.font,
-        cursor: "pointer",
-        ...hoverStyles, // spread hover styles if hovered
+        borderColor: elemMatch.baseStyles.border ? elemMatch.color.secondary : {},
+        boxShadow: `${elemMatch.baseStyles.boxShadowX ? elemMatch.baseStyles.boxShadowX : "0px"} ${elemMatch.baseStyles.boxShadowY ? elemMatch.baseStyles.boxShadowY : "0px"} ${elemMatch.baseStyles.boxShadowBlur ? elemMatch.baseStyles.boxShadowBlur : "0px"} ${elemMatch.baseStyles.boxShadowSpread ? elemMatch.baseStyles.boxShadowSpread : "0px"} ${elemMatch.baseStyles.boxShadowColor ? elemMatch.color.secondary : ""}`,
     };
+
+    // Hover Styles
+    // ===========================
+    const hoverStyles = {
+        ...elemMatch.editableStyles, // editable styles from the json of the matching element
+        ...elemMatch.hoverStyles, // hover styles from the json of the matching element
+        // optional styles set in json
+        background: elemMatch.color.primary,
+        color: elemMatch.color.font,
+        borderColor: elemMatch.hoverStyles.border ? elemMatch.color.secondary : {},
+        boxShadow: `${elemMatch.hoverStyles.boxShadowX ? elemMatch.hoverStyles.boxShadowX : "0px"} ${elemMatch.hoverStyles.boxShadowY ? elemMatch.hoverStyles.boxShadowY : "0px"} ${elemMatch.hoverStyles.boxShadowBlur ? elemMatch.hoverStyles.boxShadowBlur : "0px"} ${elemMatch.hoverStyles.boxShadowSpread ? elemMatch.hoverStyles.boxShadowSpread : "0px"} ${elemMatch.hoverStyles.boxShadowColor ? elemMatch.color.secondary : ""}`,
+    };
+
+    // Format ID
+    // ===========================
+    // adds 0 to the beginning of the string until it is 3 characters long
+    const formattedId = id.toString().padStart(3, "0");
 
     return (
         <a
@@ -67,11 +71,12 @@ export default function SnippetCard({ id, label }) {
             </h4>
             <div className={styles.SnippetDisplay}>
                 <div
-                    style={inlineStyles}
+                    className={styles.SnippetElem}
+                    style={isHovered ? hoverStyles : baseStyles}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    {label}
+                    {elemMatch.label}
                 </div>
             </div>
         </a>

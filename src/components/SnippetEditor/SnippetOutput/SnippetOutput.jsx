@@ -27,11 +27,11 @@ export default function SnippetOutput() {
     }
 
     // destructure stored props from json
-    const baseStyles = elemMatch.style;
+    // const baseStyles = elemMatch.style;
 
     // handle hover state
     // ===========================
-    const [isHovered, setIsHovered] = useState(false); // state for hover check
+    const [isHovered, setIsHovered] = useState(false);
 
     // cursor enters element
     const handleMouseEnter = () => {
@@ -43,22 +43,44 @@ export default function SnippetOutput() {
         setIsHovered(false);
     };
 
-    // add hover styles if cursor on element
-    const hoverStyles = isHovered ? elemMatch.hovered : {};
-
-    // set snippet values
+    // Colors
     // ===========================
-    const inlineStyles = {
-        ...baseStyles,
-        // inputValues set in context as state
+    // Value set with color picker (has default value set in json object)
+    const colorPrimary = `${inputValues[2]}`;
+    // Value is tinted color picker value
+    const colorSecondary = `${inputValues[6]}`;
+    // Value is based on if color picker value is a bright or dark value
+    const colorFont = `${inputValues[5]}`;
+
+    // Editable Styles
+    // ===========================
+    const editableStyles = {
         paddingInline: `${inputValues[0]}rem`,
         paddingBlock: `${inputValues[1]}rem`,
-        background: `${inputValues[2]}`,
+        background: `${colorPrimary}`,
         borderRadius: `${inputValues[3]}rem`,
         fontSize: `${inputValues[4]}rem`,
-        color: `${inputValues[5]}`,
-        cursor: "pointer",
-        ...hoverStyles, // spread hover styles if hovered
+        color: `${colorFont}`,
+    };
+
+    // Base Styles
+    // ===========================
+    const baseStyles = {
+        ...editableStyles,
+        ...elemMatch.baseStyles,
+        // optional styles with dynamic color
+        borderColor: elemMatch.baseStyles.border ? colorSecondary : {},
+        boxShadow: `${elemMatch.baseStyles.boxShadowX ? elemMatch.baseStyles.boxShadowX : "0px"} ${elemMatch.baseStyles.boxShadowY ? elemMatch.baseStyles.boxShadowY : "0px"} ${elemMatch.baseStyles.boxShadowBlur ? elemMatch.baseStyles.boxShadowBlur : "0px"} ${elemMatch.baseStyles.boxShadowSpread ? elemMatch.baseStyles.boxShadowSpread : "0px"} ${elemMatch.baseStyles.boxShadowColor ? colorSecondary : ""}`,
+    };
+
+    // Hover Styles
+    // ===========================
+    const hoverStyles = {
+        ...editableStyles,
+        ...elemMatch.hoverStyles,
+        // optional styles with dynamic color
+        borderColor: elemMatch.hoverStyles.border ? colorSecondary : {},
+        boxShadow: `${elemMatch.hoverStyles.boxShadowX ? elemMatch.hoverStyles.boxShadowX : "0px"} ${elemMatch.hoverStyles.boxShadowY ? elemMatch.hoverStyles.boxShadowY : "0px"} ${elemMatch.hoverStyles.boxShadowBlur ? elemMatch.hoverStyles.boxShadowBlur : "0px"} ${elemMatch.hoverStyles.boxShadowSpread ? elemMatch.hoverStyles.boxShadowSpread : "0px"} ${elemMatch.hoverStyles.boxShadowColor ? colorSecondary : ""}`,
     };
 
     return (
@@ -68,11 +90,12 @@ export default function SnippetOutput() {
             </h3>
             <div className={styles.SnippetDisplay}>
                 <a
-                    style={inlineStyles}
+                    className={styles.SnippetElem}
+                    style={isHovered ? hoverStyles : baseStyles}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    Click
+                    {elemMatch.label}
                 </a>
             </div>
         </section>

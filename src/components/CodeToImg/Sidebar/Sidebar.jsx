@@ -35,12 +35,12 @@ export default function Sidebar() {
                 </ul>
             </section>
             {/* Container Properties */}
-            <section className={styles.SidebarSection}>
+            {/* <section className={styles.SidebarSection}>
                 <h3 className={styles.Label}>Properties</h3>
                 <SnippetProperty icon={iconPaddingHorizontal} />
                 <SnippetProperty icon={iconPaddingVertical} />
                 <SnippetProperty icon={iconBorderRadius} />
-            </section>
+            </section> */}
             {/* Drop Shadow Options */}
             <section className={styles.SidebarSection}>
                 <h3 className={styles.Label}>Shadow</h3>

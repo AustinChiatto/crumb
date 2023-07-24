@@ -8,8 +8,8 @@ export default function OutputDimensions() {
     return (
         <div className={styles.OutputDimensions}>
             {/* place holder buttons - replace with inputs */}
-            <ButtonPrimary btnLabel={"Width"}></ButtonPrimary>
-            <ButtonPrimary btnLabel={"Height"}></ButtonPrimary>
+            {/* <ButtonPrimary btnLabel={"Width"}></ButtonPrimary>
+            <ButtonPrimary btnLabel={"Height"}></ButtonPrimary> */}
         </div>
     );
 }

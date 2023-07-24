@@ -13,20 +13,30 @@ import styles from "./CodeOutput.module.scss";
 import github from "react-syntax-highlighter/dist/esm/styles/hljs/github";
 
 export default function CodeOutput() {
+    // Handle displayed code
+    // ===========================
     const [codeType, setCodeType] = useState([
         { id: 1, isActive: false, label: "HTML" },
         { id: 2, isActive: true, label: "CSS" },
         // Add more button objects as needed
     ]);
 
+    // Handle button click
+    // ===========================
     const handleButtonClick = (codeTypeId) => {
         const updatedCodeType = codeType.map((codeType) => (codeType.id === codeTypeId ? { ...codeType, isActive: true } : { ...codeType, isActive: false }));
         setCodeType(updatedCodeType);
     };
 
+    // Displayed Code
+    // ===========================
     // context that hold input values
     const inputValues = useSnippetEdit();
 
+    // elemMatch with param
+    //
+
+    // Displayed CSS
     const cssSnippet = `/* base style */
 .button {
     padding-inline: ${inputValues[0]}rem;
@@ -46,12 +56,10 @@ export default function CodeOutput() {
 }
     `;
 
+    // Displayed HTML
     const htmlSnippet = `<!-- button tag -->
 <button class="button">Click</button>
     `;
-
-    // loop through buttons
-    //
 
     return (
         <section className={`${styles.CodeOutput} card`}>

@@ -29,16 +29,17 @@ export function SnippetEditorProvider({ children }) {
     const elemMatch = elemData.find((element) => element.id == params.id);
 
     // useState for color picker
-    const [colorPicker, setColorPicker] = useState(elemMatch.color.background);
+    const [colorPicker, setColorPicker] = useState(elemMatch.color.primary);
 
-    const paddingInline = parseFloat(elemMatch.style.paddingInline);
-    const paddingBlock = parseFloat(elemMatch.style.paddingBlock);
-    const background = colorPicker;
-    const borderRadius = parseFloat(elemMatch.style.borderRadius);
-    const fontSize = parseFloat(elemMatch.style.fontSize);
-    const color = elemMatch.color.font;
+    const paddingInline = parseFloat(elemMatch.editableStyles.paddingInline);
+    const paddingBlock = parseFloat(elemMatch.editableStyles.paddingBlock);
+    const colorPrimary = colorPicker;
+    const borderRadius = parseFloat(elemMatch.editableStyles.borderRadius);
+    const fontSize = parseFloat(elemMatch.editableStyles.fontSize);
+    const colorFont = elemMatch.color.font;
+    const colorSecondary = elemMatch.color.secondary;
 
-    const [inputValue, setInputValue] = useState([paddingInline, paddingBlock, background, borderRadius, fontSize, color]);
+    const [inputValue, setInputValue] = useState([paddingInline, paddingBlock, colorPrimary, borderRadius, fontSize, colorFont, colorSecondary]);
 
     // index: id of the input - set above in the state array
     // operation: passed to the context via prop for the check

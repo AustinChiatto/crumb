@@ -3,100 +3,26 @@
         "id": 1,
         "label": "Click",
         "color": {
-            "background": "#974ec2",
+            "primary": "#974ec2",
+            "secondary": "#513f99",
             "font": "#fff",
-            "other": "#513f99"
+            "special": ""
         },
-        "style": {
+        "editableStyles": {
             "paddingBlock": "1.5rem",
             "paddingInline": "3rem",
             "fontSize": "1rem",
-            "boxShadow": "0 3px 0 0 #513f99",
-            "borderRadius": "0.5rem",
+            "borderRadius": "0.5rem"
+        },
+        "baseStyles": { 
+            "boxShadowY": "3px",
+            "boxShadowColor": "#513f99",
             "transition": "all 50ms ease-in-out"
         },
-        "hovered": {
+        "hoverStyles": {
             "transform": "translateY(3px)",
-            "boxShadow": "0 0 0 0 #513f99"
-        }
-        
-    },
-    {
-        "id": 2,
-        "label": "Click",
-        "color": {
-            "background": "#984063",
-            "font": "#ff9677"
-        },
-        "style": {
-            "paddingBlock": "1.5rem",
-            "paddingInline": "2.5rem",
-            "fontSize": "1rem",
-            "borderRadius": "5rem",
-            "transition": "all 150ms ease-in-out"
-        },
-        "hovered": {
-            "color": "#984063",
-            "background": "#ff9677"
-        }
-    },
-    {
-        "id": 3,
-        "label": "Click",
-        "color": {
-            "background": "#28446e",
-            "font": "#f7f7f9"
-        },
-        "style": {
-            "paddingBlock": "1.5rem",
-            "paddingInline": "2.5rem",
-            "fontSize": "1rem",
-            "borderRadius": "0.5rem",
-            "transition": "border-radius 200ms cubic-bezier(0.21, 0.45, 0.49, 0.83)"
-        },
-        "hovered": {
-            "borderRadius": "5rem"
-        }
-    },
-    {
-        "id": 4,
-        "label": "Click",
-        "color": {
-            "font": "#1e1e1e"
-        },
-        "style": {
-            "paddingBlock": "1.5rem",
-            "paddingInline": "1.5rem",
-            "fontSize": "1rem",
-            "aspectRatio": "1/1",
-            "display": "flex",
-            "alignItems": "center",
-            "borderRadius": "50%",
-            "border": "0.125rem solid #1e1e1e",
-            "transition": "scale 100ms cubic-bezier(0.21, 0.45, 0.49, 0.83)"
-        },
-        "hovered": {
-            "scale": "1.1"
-        }
-    },
-    {
-        "id": 5,
-        "label": "Click",
-        "color": {
-            "font": "#547c83"
-        },
-        "style": {
-            "paddingBlock": "1.5rem",
-            "paddingInline": "2.5rem",
-            "fontSize": "1rem",
-            "borderRadius": "0",
-            "border": "0.125rem solid #547c83",
-            "transition": "all 100ms cubic-bezier(0.21, 0.45, 0.49, 0.83)"
-        },
-        "hovered": {
-            "background": "#547c83",
-            "color": "#a3d4ac"
+            "boxShadowY": "0px",
+            "boxShadowColor": "#513f99"
         }
     }
-    
 ]

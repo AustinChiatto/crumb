@@ -36,3 +36,7 @@
     flex-grow: 1;
     @include m.flex(center, center);
 }
+
+.SnippetElem {
+    cursor: pointer;
+}
