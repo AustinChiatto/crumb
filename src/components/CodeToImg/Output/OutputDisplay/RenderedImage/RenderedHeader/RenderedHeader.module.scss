@@ -5,7 +5,7 @@
 .Header {
     color: #F7F8F9;
     @include m.flex(flex-start, center);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 // input for filename
@@ -14,6 +14,12 @@
     text-align: center;
     position: relative;
     left: -1rem;
+    resize: none;
+    border: none;
+    outline: none;
+    background: none;
+    padding: none;
+    margin: none;
 }
 
 // browser buttons

@@ -1,7 +1,14 @@
 // styles
+import { useState } from "react";
 import styles from "./RenderedHeader.module.scss";
 
 export default function RenderedHeader({ containerHeader }) {
+    const [containerHeaderName, setContainerHeaderName] = useState("MyCode");
+
+    const handleInputChange = (event) => {
+        setContainerHeaderName(event.target.value);
+    };
+
     return (
         <div className={styles.Header}>
             <ul className={styles.BrowserButtons}>
@@ -18,12 +25,18 @@ export default function RenderedHeader({ containerHeader }) {
                     style={{ background: `${containerHeader.color}` }}
                 ></li>
             </ul>
-            <p
+            <textarea
+                value={containerHeaderName}
                 className={styles.FileName}
+                rows={1}
+                cols={15}
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck="false"
                 style={{ fontFamily: '"Inter", sans-serif', fontWeight: "400", color: `${containerHeader.color}` }}
-            >
-                MyCode.js
-            </p>
+                onChange={handleInputChange}
+            ></textarea>
         </div>
     );
 }

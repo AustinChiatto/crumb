@@ -16,7 +16,7 @@
             "backdropFilter": "blur(1rem)"
         },
         "containerHeader": {
-            "color": "#aebbc099"
+            "color": "#9eacb2"
         },
         "themeLight": true
     },
@@ -57,7 +57,7 @@
             "backdropFilter": "blur(1rem)"
         },
         "containerHeader": {
-            "color": "#aebbc099"
+            "color": "#9eacb2"
         },
         "themeLight": true
     },
@@ -74,7 +74,7 @@
             "border": "none"
         },
         "containerHeader": {
-            "color": "#aebbc099"
+            "color": "#9eacb2"
         },
         "themeLight": true
     },
@@ -113,7 +113,7 @@
             "backdropFilter": "blur(1rem)"
         },
         "containerHeader": {
-            "color": "#aebbc099"
+            "color": "#9eacb2"
         },
         "themeLight": true
     }
