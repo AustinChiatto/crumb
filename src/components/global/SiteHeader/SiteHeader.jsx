@@ -5,14 +5,14 @@ export default function SiteHeader() {
     return (
         <header className={`${styles.SiteHeader}`}>
             <nav className={styles.SiteNav}>
-                <a href={`/home`}>Codependent</a>
+                <a href={`/home`}>Crumb</a>
                 <ul className={styles.InternalLinks}>
                     <li>
                         <a
                             className={styles.NavButton}
                             href={`/grid-tool`}
                         >
-                            Snippets
+                            Grid Tool
                         </a>
                     </li>
                     <li>
@@ -20,7 +20,7 @@ export default function SiteHeader() {
                             className={styles.NavButton}
                             href={`/code-to-img`}
                         >
-                            Tools
+                            Code To Image
                         </a>
                     </li>
                 </ul>
