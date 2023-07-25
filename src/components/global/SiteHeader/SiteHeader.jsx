@@ -20,7 +20,7 @@ export default function SiteHeader() {
                             className={styles.NavButton}
                             href={`/code-to-img`}
                         >
-                            Code To Image
+                            Code Image
                         </a>
                     </li>
                 </ul>
