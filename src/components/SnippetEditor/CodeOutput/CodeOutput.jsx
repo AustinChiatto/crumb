@@ -51,6 +51,18 @@ export default function CodeOutput() {
     // context that hold input values
     const inputValues = useSnippetEdit();
 
+    function shadeHexColor(color, percent) {
+        let f = parseInt(color.slice(1), 16),
+            t = percent < 0 ? 0 : 255,
+            p = percent < 0 ? percent * -1 : percent,
+            R = f >> 16,
+            G = (f >> 8) & 0x00ff,
+            B = f & 0x0000ff;
+        return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
+    }
+
+    const colorSecondary = shadeHexColor(inputValues[2], -0.5);
+
     // Displayed CSS
     const cssSnippet = `/* base style */
 .button-${formattedId} {
@@ -60,8 +72,8 @@ export default function CodeOutput() {
     background: ${inputValues[2]};
     font-size: ${inputValues[4]}rem;
     color: ${inputValues[5]};
-    ${elemMatch.baseStyles.boxShadowColor ? `box-shadow: ${elemMatch.baseStyles.boxShadowX ? elemMatch.baseStyles.boxShadowX : "0px"} ${elemMatch.baseStyles.boxShadowY ? elemMatch.baseStyles.boxShadowY : "0px"} ${elemMatch.baseStyles.boxShadowBlur ? elemMatch.baseStyles.boxShadowBlur : "0px"} ${elemMatch.baseStyles.boxShadowSpread ? elemMatch.baseStyles.boxShadowSpread : "0px"} ${elemMatch.baseStyles.boxShadowColor ? inputValues[6] : ""};` : ""}
-    ${elemMatch.baseStyles.borderStyle ? `border: ${elemMatch.baseStyles.borderWidth ? elemMatch.baseStyles.borderWidth : "0px"} ${elemMatch.baseStyles.borderStyle ? elemMatch.baseStyles.borderStyle : "0px"} ${elemMatch.baseStyles.borderColor ? inputValues[6] : ""};` : ""}
+    ${elemMatch.baseStyles.boxShadowColor ? `box-shadow: ${elemMatch.baseStyles.boxShadowX ? elemMatch.baseStyles.boxShadowX : "0px"} ${elemMatch.baseStyles.boxShadowY ? elemMatch.baseStyles.boxShadowY : "0px"} ${elemMatch.baseStyles.boxShadowBlur ? elemMatch.baseStyles.boxShadowBlur : "0px"} ${elemMatch.baseStyles.boxShadowSpread ? elemMatch.baseStyles.boxShadowSpread : "0px"} ${elemMatch.baseStyles.boxShadowColor ? colorSecondary : ""};` : ""}
+    ${elemMatch.baseStyles.borderStyle ? `border: ${elemMatch.baseStyles.borderWidth ? elemMatch.baseStyles.borderWidth : "0px"} ${elemMatch.baseStyles.borderStyle ? elemMatch.baseStyles.borderStyle : "0px"} ${elemMatch.baseStyles.borderColor ? colorSecondary : ""};` : ""}
     ${elemMatch.baseStyles.transition ? `transition: ${elemMatch.baseStyles.transition};` : ""}
 }
 
@@ -69,8 +81,8 @@ export default function CodeOutput() {
 .button-${formattedId}:hover {
     ${elemMatch.hoverStyles.borderRadius ? `border-radius: ${elemMatch.hoverStyles.borderRadius};` : ""}
     ${elemMatch.hoverStyles.transform ? `transform: ${elemMatch.hoverStyles.transform};` : ""}
-    ${elemMatch.hoverStyles.boxShadowColor ? `box-shadow: ${elemMatch.hoverStyles.boxShadowX ? elemMatch.hoverStyles.boxShadowX : "0px"} ${elemMatch.hoverStyles.boxShadowY ? elemMatch.hoverStyles.boxShadowY : "0px"} ${elemMatch.hoverStyles.boxShadowBlur ? elemMatch.hoverStyles.boxShadowBlur : "0px"} ${elemMatch.hoverStyles.boxShadowSpread ? elemMatch.hoverStyles.boxShadowSpread : "0px"} ${elemMatch.hoverStyles.boxShadowColor ? inputValues[6] : ""};` : ""}
-    ${elemMatch.hoverStyles.borderStyle ? `border: ${elemMatch.hoverStyles.borderWidth ? elemMatch.hoverStyles.borderWidth : "0px"} ${elemMatch.hoverStyles.borderStyle ? elemMatch.hoverStyles.borderStyle : "0px"} ${elemMatch.hoverStyles.borderColor ? inputValues[6] : ""};` : ""}
+    ${elemMatch.hoverStyles.boxShadowColor ? `box-shadow: ${elemMatch.hoverStyles.boxShadowX ? elemMatch.hoverStyles.boxShadowX : "0px"} ${elemMatch.hoverStyles.boxShadowY ? elemMatch.hoverStyles.boxShadowY : "0px"} ${elemMatch.hoverStyles.boxShadowBlur ? elemMatch.hoverStyles.boxShadowBlur : "0px"} ${elemMatch.hoverStyles.boxShadowSpread ? elemMatch.hoverStyles.boxShadowSpread : "0px"} ${elemMatch.hoverStyles.boxShadowColor ? colorSecondary : ""};` : ""}
+    ${elemMatch.hoverStyles.borderStyle ? `border: ${elemMatch.hoverStyles.borderWidth ? elemMatch.hoverStyles.borderWidth : "0px"} ${elemMatch.hoverStyles.borderStyle ? elemMatch.hoverStyles.borderStyle : "0px"} ${elemMatch.hoverStyles.borderColor ? colorSecondary : ""};` : ""}
 }`;
 
     // Displayed HTML

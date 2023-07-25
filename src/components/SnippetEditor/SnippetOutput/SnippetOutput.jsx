@@ -43,14 +43,24 @@ export default function SnippetOutput() {
         setIsHovered(false);
     };
 
+    function shadeHexColor(color, percent) {
+        let f = parseInt(color.slice(1), 16),
+            t = percent < 0 ? 0 : 255,
+            p = percent < 0 ? percent * -1 : percent,
+            R = f >> 16,
+            G = (f >> 8) & 0x00ff,
+            B = f & 0x0000ff;
+        return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
+    }
+
     // Colors
     // ===========================
     // Value set with color picker (has default value set in json object)
-    const colorPrimary = `${inputValues[2]}`;
+    const colorPrimary = inputValues[2];
     // Value is tinted color picker value
-    const colorSecondary = `${inputValues[6]}`;
+    const colorSecondary = shadeHexColor(inputValues[2], -0.5);
     // Value is based on if color picker value is a bright or dark value
-    const colorFont = `${inputValues[5]}`;
+    const colorFont = inputValues[5];
 
     // Editable Styles
     // ===========================

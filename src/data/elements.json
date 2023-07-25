@@ -6,7 +6,7 @@
             "primary": "#974ec2",
             "secondary": "#513f99",
             "font": "#fff",
-            "special": ""
+            "shadeValue": "-0.5"
         },
         "editableStyles": {
             "paddingBlock": "1.5rem",
@@ -14,7 +14,7 @@
             "fontSize": "1rem",
             "borderRadius": "0.5rem"
         },
-        "baseStyles": { 
+        "baseStyles": {
             "boxShadowY": "3px",
             "boxShadowColor": "#513f99",
             "transition": "all 50ms ease-in-out"
@@ -32,7 +32,7 @@
             "primary": "#c3fcd4",
             "secondary": "#000",
             "font": "#000",
-            "special": ""
+            "shadeValue": ""
         },
         "editableStyles": {
             "paddingBlock": "1.5rem",
@@ -40,7 +40,7 @@
             "fontSize": "1rem",
             "borderRadius": "1rem"
         },
-        "baseStyles": { 
+        "baseStyles": {
             "borderWidth": "1px",
             "borderStyle": "solid",
             "borderColor": "#000",
@@ -61,7 +61,7 @@
             "primary": "#222222",
             "secondary": "#000",
             "font": "#f7f7f9",
-            "special": ""
+            "shadeValue": ""
         },
         "editableStyles": {
             "paddingBlock": "1.5rem",
@@ -69,7 +69,7 @@
             "fontSize": "1rem",
             "borderRadius": "0"
         },
-        "baseStyles": { 
+        "baseStyles": {
             "transition": "all 150ms ease-in-out"
         },
         "hoverStyles": {
