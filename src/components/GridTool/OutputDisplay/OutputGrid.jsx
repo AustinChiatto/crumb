@@ -1,7 +1,10 @@
+// styles
+import styles from "./OutputDisplay.module.scss";
+
 const OutputGrid = ({ gridStyles, gridItemArray }) => {
     return (
         <div
-            className="output-display__grid-container"
+            className={styles.OutputGrid}
             style={gridStyles}
         >
             {gridItemArray}

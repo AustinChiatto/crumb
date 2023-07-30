@@ -1,11 +1,17 @@
+// hooks
 import { useState } from "react";
-import ButtonPrimary from "../../global/ButtonPrimary/ButtonPrimary";
-import "./output-display.css";
 
+// context
 import { useGridControl } from "../../../GridControlContext";
+
+// styles
+import styles from "./OutputDisplay.module.scss";
+
+// components
 import GridItem from "./GridItem";
 import OutputGrid from "./OutputGrid";
 import OutputSnippet from "./OutputSnippet";
+import ButtonPrimary from "../../global/ButtonPrimary/ButtonPrimary";
 
 // Define Component
 // ===========================
@@ -27,35 +33,36 @@ const OutputDisplay = () => {
     // add a GridItem component to and array based on the length of the calculated value
     const gridItemArray = Array.from({ length: totalGridItemCount }, () => <GridItem />);
 
-    // Conditionally Render Grid or Code
-    // ===========================
+    // button states
+    const [btnStates, setBtnStates] = useState([
+        { id: 1, isActive: true, label: "Show Grid" },
+        { id: 2, isActive: false, label: "View Code" },
+        // Add more button objects as needed
+    ]);
 
-    const [active, setActive] = useState(false);
-
-    const updateDisplayedOutput = () => {
-        setActive((prevActive) => !prevActive);
+    // Handle button click
+    const handleButtonClick = (btnStateId) => {
+        const updatedBtnState = btnStates.map((btnState) => (btnState.id === btnStateId ? { ...btnState, isActive: true } : { ...btnState, isActive: false }));
+        setBtnStates(updatedBtnState);
     };
 
     // Exported Component
     // ===========================
     return (
-        <section className="output-display card">
-            <ul className="btn-list--wide">
-                <li className="btn-list__item">
-                    <ButtonPrimary
-                        btnLabel="Hide Children"
-                        isActive={true}
-                    ></ButtonPrimary>
-                </li>
-                <li className="btn-list__item">
-                    <ButtonPrimary
-                        btnLabel="Get CSS"
-                        isActive={active}
-                        event={updateDisplayedOutput}
-                    ></ButtonPrimary>
-                </li>
+        <section className={`${styles.OutputDisplay} card`}>
+            <ul className={styles.ButtonList}>
+                {btnStates.map((btnState) => (
+                    <li>
+                        <ButtonPrimary
+                            key={btnState.id}
+                            btnLabel={btnState.label}
+                            isActive={btnState.isActive}
+                            onClick={() => handleButtonClick(btnState.id)}
+                        ></ButtonPrimary>
+                    </li>
+                ))}
             </ul>
-            {active ? (
+            {btnStates[1].isActive ? (
                 <OutputSnippet></OutputSnippet>
             ) : (
                 <OutputGrid

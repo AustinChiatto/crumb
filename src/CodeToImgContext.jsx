@@ -1,6 +1,5 @@
 // hooks
 import React, { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
 
 // contexts
 const codeToImgContext = React.createContext();

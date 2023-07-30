@@ -1,6 +1,11 @@
 import { useRef } from "react";
 import { useGridControl } from "../../../GridControlContext";
 import ButtonPrimary from "../../global/ButtonPrimary/ButtonPrimary";
+import CodeBlock from "../../global/CodeBlock/CodeBlock";
+
+// styles
+import styles from "./OutputDisplay.module.scss";
+import stack from "react-syntax-highlighter/dist/esm/styles/hljs/stackoverflow-light";
 
 // Declare Component
 // ===========================
@@ -13,42 +18,67 @@ const OutputSnippet = () => {
 
     // Displayed Snippet
     // ===========================
-    // ? I would like to make this prettier in the code base - look into white space styling
     // stores the snippet in a variable to be called later during the handleCopy
-    const displayedSnippet = `
-.parent {
+    const cssSnippet = `.parent {
     grid-template-columns: repeat(${inputValues[0]}, 1fr);
     grid-template-rows: repeat(${inputValues[1]}, 1fr);
     gap: ${inputValues[2]}px;
-}
-    `;
+    <div class="grid-item"></div>
+}`;
+
+    const htmlSnippet = `<section class="parent">
+    <!-- place grid children here -->
+</section>`;
 
     // Copy Snippet to Clipboard
     // ===========================
-    function handleCopy() {
-        // Copy the stored value declared above to the clipboard
-        navigator.clipboard.writeText(displayedSnippet);
+    function handleCSS() {
+        navigator.clipboard.writeText(cssSnippet);
+    }
+
+    function handleHTML() {
+        navigator.clipboard.writeText(htmlSnippet);
     }
 
     return (
-        <div className="snippet">
-            <ButtonPrimary
-                btnLabel={"Copy Code"}
-                event={handleCopy}
-            ></ButtonPrimary>
-            <div className="snippet__wrapper">
-                <ul className="snippet__browser-actions">
-                    <li className="snippet__browser-action"></li>
-                    <li className="snippet__browser-action"></li>
-                    <li className="snippet__browser-action"></li>
-                </ul>
-                <div className="snippet__container">
-                    <pre>
-                        <code ref={copyTargetRef}>{displayedSnippet}</code>
-                    </pre>
+        <>
+            <section className={styles.GridSnippetWrapper}>
+                <div className={styles.GridSnippet}>
+                    <div className={styles.GridSnippetHeader}>
+                        <h3>CSS</h3>
+                        <ButtonPrimary
+                            btnLabel={"Copy"}
+                            onClick={handleCSS}
+                        ></ButtonPrimary>
+                    </div>
+                    <div className={styles.SnippetContainer}>
+                        <CodeBlock
+                            code={cssSnippet}
+                            language={"css"}
+                            theme={stack}
+                            ref={copyTargetRef}
+                        ></CodeBlock>
+                    </div>
                 </div>
-            </div>
-        </div>
+                <div className={styles.GridSnippet}>
+                    <div className={styles.GridSnippetHeader}>
+                        <h3>HTML</h3>
+                        <ButtonPrimary
+                            btnLabel={"Copy"}
+                            onClick={handleHTML}
+                        ></ButtonPrimary>
+                    </div>
+                    <div className={styles.SnippetContainer}>
+                        <CodeBlock
+                            code={htmlSnippet}
+                            language={"htmlbars"}
+                            theme={stack}
+                            ref={copyTargetRef}
+                        ></CodeBlock>
+                    </div>
+                </div>
+            </section>
+        </>
     );
 };
 

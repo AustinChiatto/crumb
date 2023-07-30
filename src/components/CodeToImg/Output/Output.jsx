@@ -11,7 +11,7 @@ import OutputDisplay from "./OutputDisplay/OutputDisplay";
 import OutputOptions from "./OutputOptions/OutputOptions";
 
 export default function Output() {
-    const [selectedOption, setSelectedOption] = useState("Typescript");
+    const [selectedOption, setSelectedOption] = useState("");
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
