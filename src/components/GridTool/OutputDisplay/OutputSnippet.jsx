@@ -23,7 +23,10 @@ const OutputSnippet = () => {
     grid-template-columns: repeat(${inputValues[0]}, 1fr);
     grid-template-rows: repeat(${inputValues[1]}, 1fr);
     gap: ${inputValues[2]}px;
-    <div class="grid-item"></div>
+}
+
+.grid-child {
+    /* child style */
 }`;
 
     const htmlSnippet = `<section class="parent">
@@ -45,23 +48,6 @@ const OutputSnippet = () => {
             <section className={styles.GridSnippetWrapper}>
                 <div className={styles.GridSnippet}>
                     <div className={styles.GridSnippetHeader}>
-                        <h3>CSS</h3>
-                        <ButtonPrimary
-                            btnLabel={"Copy"}
-                            onClick={handleCSS}
-                        ></ButtonPrimary>
-                    </div>
-                    <div className={styles.SnippetContainer}>
-                        <CodeBlock
-                            code={cssSnippet}
-                            language={"css"}
-                            theme={stack}
-                            ref={copyTargetRef}
-                        ></CodeBlock>
-                    </div>
-                </div>
-                <div className={styles.GridSnippet}>
-                    <div className={styles.GridSnippetHeader}>
                         <h3>HTML</h3>
                         <ButtonPrimary
                             btnLabel={"Copy"}
@@ -72,6 +58,23 @@ const OutputSnippet = () => {
                         <CodeBlock
                             code={htmlSnippet}
                             language={"htmlbars"}
+                            theme={stack}
+                            ref={copyTargetRef}
+                        ></CodeBlock>
+                    </div>
+                </div>
+                <div className={styles.GridSnippet}>
+                    <div className={styles.GridSnippetHeader}>
+                        <h3>CSS</h3>
+                        <ButtonPrimary
+                            btnLabel={"Copy"}
+                            onClick={handleCSS}
+                        ></ButtonPrimary>
+                    </div>
+                    <div className={styles.SnippetContainer}>
+                        <CodeBlock
+                            code={cssSnippet}
+                            language={"css"}
                             theme={stack}
                             ref={copyTargetRef}
                         ></CodeBlock>
